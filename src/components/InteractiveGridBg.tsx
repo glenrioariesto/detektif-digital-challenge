@@ -1,18 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
-interface Wave {
+interface Particle {
   x: number;
   y: number;
-  radius: number;
-  maxRadius: number;
-  speed: number;
-  intensity: number;
+  vx: number;
+  vy: number;
+  size: number;
+  alpha: number;
+  text: string;
 }
 
 export function InteractiveGridBg() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const mouseRef = useRef({ x: -1000, y: -1000, targetX: -1000, targetY: -1000 });
-  const wavesRef = useRef<Wave[]>([]);
+  const particlesRef = useRef<Particle[]>([]);
+  const rotationRef = useRef({ r1: 0, r2: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -44,32 +46,21 @@ export function InteractiveGridBg() {
     };
 
     const handleClick = (e: MouseEvent) => {
-      // Don't spawn ripples if clicking on a button
       const target = e.target as HTMLElement;
       if (target.closest('button') || target.closest('a')) return;
 
-      wavesRef.current.push({
-        x: e.clientX,
-        y: e.clientY,
-        radius: 0,
-        maxRadius: 280,
-        speed: 6,
-        intensity: 1.0,
-      });
-    };
-
-    const handleTouchStart = (e: TouchEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.closest('button') || target.closest('a')) return;
-
-      if (e.touches.length > 0) {
-        wavesRef.current.push({
-          x: e.touches[0].clientX,
-          y: e.touches[0].clientY,
-          radius: 0,
-          maxRadius: 240,
-          speed: 5,
-          intensity: 1.0,
+      // Spawn burst of digital binary particles
+      for (let i = 0; i < 20; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 2 + Math.random() * 5;
+        particlesRef.current.push({
+          x: e.clientX,
+          y: e.clientY,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          size: 8 + Math.random() * 6,
+          alpha: 1.0,
+          text: Math.random() > 0.5 ? '1' : '0',
         });
       }
     };
@@ -77,98 +68,142 @@ export function InteractiveGridBg() {
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('touchmove', handleTouchMove);
     window.addEventListener('click', handleClick);
-    window.addEventListener('touchstart', handleTouchStart);
-
-    // Grid spacing parameters
-    const spacing = 42;
 
     const draw = () => {
-      // Render base background
-      ctx.fillStyle = '#070514';
+      // Dark cyber background
+      ctx.fillStyle = '#060511';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Smooth mouse coordinates interpolation
       const mouse = mouseRef.current;
       if (mouse.x === -1000) {
         mouse.x = mouse.targetX;
         mouse.y = mouse.targetY;
       } else {
-        mouse.x += (mouse.targetX - mouse.x) * 0.12;
-        mouse.y += (mouse.targetY - mouse.y) * 0.12;
+        mouse.x += (mouse.targetX - mouse.x) * 0.15;
+        mouse.y += (mouse.targetY - mouse.y) * 0.15;
       }
 
-      // Update waves
-      const waves = wavesRef.current;
-      for (let i = waves.length - 1; i >= 0; i--) {
-        const w = waves[i];
-        w.radius += w.speed;
-        w.intensity -= 0.02;
-        if (w.radius > w.maxRadius || w.intensity <= 0) {
-          waves.splice(i, 1);
+      // 1. Draw hacker grid lines (very faint grid)
+      ctx.strokeStyle = 'rgba(34, 197, 94, 0.025)';
+      ctx.lineWidth = 0.5;
+      const gridSize = 60;
+      for (let x = 0; x < canvas.width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      for (let y = 0; y < canvas.height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+
+      // 2. Draw Target Tracker HUD centered on cursor
+      if (mouse.x > 0 && mouse.x < canvas.width) {
+        rotationRef.current.r1 += 0.015;
+        rotationRef.current.r2 -= 0.008;
+
+        const rx = mouse.x;
+        const ry = mouse.y;
+
+        ctx.save();
+        ctx.translate(rx, ry);
+
+        // Outer segmented compass ring
+        ctx.strokeStyle = 'rgba(34, 197, 94, 0.2)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([8, 12]);
+        ctx.rotate(rotationRef.current.r2);
+        ctx.beginPath();
+        ctx.arc(0, 0, 75, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Inner solid rotating ring
+        ctx.strokeStyle = 'rgba(34, 197, 94, 0.35)';
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([]);
+        ctx.rotate(rotationRef.current.r1);
+        ctx.beginPath();
+        ctx.arc(0, 0, 45, 0, Math.PI * 0.4);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(0, 0, 45, Math.PI, Math.PI * 1.4);
+        ctx.stroke();
+
+        // Inner target reticle
+        ctx.strokeStyle = 'rgba(34, 197, 94, 0.4)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        // Crosshair hairs
+        ctx.moveTo(-15, 0); ctx.lineTo(-6, 0);
+        ctx.moveTo(6, 0); ctx.lineTo(15, 0);
+        ctx.moveTo(0, -15); ctx.lineTo(0, -6);
+        ctx.moveTo(0, 6); ctx.lineTo(0, 15);
+        ctx.stroke();
+
+        // Small center dot
+        ctx.fillStyle = 'rgba(34, 197, 94, 0.8)';
+        ctx.beginPath();
+        ctx.arc(0, 0, 2, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.restore();
+
+        // 3. HUD status text data offset from cursor
+        ctx.fillStyle = 'rgba(34, 197, 94, 0.4)';
+        ctx.font = 'bold 9px monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText(`SYS_LOC: [${Math.round(rx)}, ${Math.round(ry)}]`, rx + 85, ry - 15);
+        ctx.fillText('STATUS: TRACKING_ACTIVE', rx + 85, ry - 3);
+        ctx.fillText('FREQ: 5.8GHZ // CH: 12', rx + 85, ry + 9);
+
+        // Draw dotted line connecting cursor to info text
+        ctx.strokeStyle = 'rgba(34, 197, 94, 0.25)';
+        ctx.lineWidth = 0.75;
+        ctx.beginPath();
+        ctx.moveTo(rx + 55, ry - 10);
+        ctx.lineTo(rx + 80, ry - 10);
+        ctx.stroke();
+      }
+
+      // 4. Update and draw binary burst particles
+      const particles = particlesRef.current;
+      ctx.textAlign = 'center';
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.alpha -= 0.02;
+
+        if (p.alpha <= 0) {
+          particles.splice(i, 1);
+          continue;
         }
+
+        ctx.fillStyle = `rgba(34, 197, 94, ${p.alpha})`;
+        ctx.font = `bold ${p.size}px monospace`;
+        ctx.fillText(p.text, p.x, p.y);
       }
 
-      // Draw grid of boxes
-      const cols = Math.ceil(canvas.width / spacing) + 1;
-      const rows = Math.ceil(canvas.height / spacing) + 1;
+      // 5. Draw a scanning vertical laser line sweeping across the screen
+      const sweepY = (Date.now() / 25) % (canvas.height + 200) - 100;
+      const sweepGrad = ctx.createLinearGradient(0, sweepY - 40, 0, sweepY + 4);
+      sweepGrad.addColorStop(0, 'rgba(34, 197, 94, 0)');
+      sweepGrad.addColorStop(0.9, 'rgba(34, 197, 94, 0.08)');
+      sweepGrad.addColorStop(1, 'rgba(34, 197, 94, 0.25)');
 
-      for (let c = 0; c < cols; c++) {
-        for (let r = 0; r < rows; r++) {
-          const originX = c * spacing;
-          const originY = r * spacing;
+      ctx.fillStyle = sweepGrad;
+      ctx.fillRect(0, sweepY - 40, canvas.width, 40);
 
-          // Calculate displacement from mouse
-          let drawX = originX;
-          let drawY = originY;
-          let brightness = 0;
-
-          const dx = mouse.x - originX;
-          const dy = mouse.y - originY;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          // Mouse Attraction / Follow field
-          const maxDist = 180;
-          if (dist < maxDist) {
-            const force = (maxDist - dist) / maxDist;
-            // Pull coordinates slightly towards the cursor
-            drawX += dx * force * 0.16;
-            drawY += dy * force * 0.16;
-            brightness += force * 0.45;
-          }
-
-          // Wave ripples field
-          for (const w of waves) {
-            const wdx = w.x - originX;
-            const wdy = w.y - originY;
-            const wdist = Math.sqrt(wdx * wdx + wdy * wdy);
-            const diff = Math.abs(wdist - w.radius);
-
-            const waveWidth = 35;
-            if (diff < waveWidth) {
-              const waveForce = (waveWidth - diff) / waveWidth * w.intensity;
-              // Push or pull coordinates along the ripple wave vector
-              drawX += (wdx / (wdist || 1)) * waveForce * 12;
-              drawY += (wdy / (wdist || 1)) * waveForce * 12;
-              brightness += waveForce * 0.8;
-            }
-          }
-
-          // Draw the box
-          brightness = Math.min(1, brightness);
-          const boxSize = 8 + brightness * 8; // expand on hover/ripple
-          const opacity = 0.04 + brightness * 0.55;
-
-          // Purple/Fuchsia cyber colors
-          ctx.strokeStyle = `rgba(168, 85, 247, ${opacity})`;
-          ctx.lineWidth = 1 + brightness;
-          ctx.strokeRect(drawX - boxSize / 2, drawY - boxSize / 2, boxSize, boxSize);
-
-          if (brightness > 0.3) {
-            ctx.fillStyle = `rgba(236, 72, 153, ${brightness * 0.3})`;
-            ctx.fillRect(drawX - 1.5, drawY - 1.5, 3, 3);
-          }
-        }
-      }
+      // Horizontal scanner laser line
+      ctx.strokeStyle = 'rgba(34, 197, 94, 0.3)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0, sweepY);
+      ctx.lineTo(canvas.width, sweepY);
+      ctx.stroke();
 
       animationFrameId = requestAnimationFrame(draw);
     };
@@ -180,7 +215,6 @@ export function InteractiveGridBg() {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('click', handleClick);
-      window.removeEventListener('touchstart', handleTouchStart);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
