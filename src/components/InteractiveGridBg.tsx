@@ -70,8 +70,8 @@ export function InteractiveGridBg() {
     window.addEventListener('click', handleClick);
 
     const draw = () => {
-      // Dark cyber background
-      ctx.fillStyle = '#060511';
+      // Dark cyber background matching body #020617
+      ctx.fillStyle = '#020617';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const mouse = mouseRef.current;
@@ -83,8 +83,8 @@ export function InteractiveGridBg() {
         mouse.y += (mouse.targetY - mouse.y) * 0.15;
       }
 
-      // 1. Draw hacker grid lines (very faint grid)
-      ctx.strokeStyle = 'rgba(34, 197, 94, 0.025)';
+      // 1. Draw hacker grid lines (very faint cyan grid)
+      ctx.strokeStyle = 'rgba(6, 182, 212, 0.025)';
       ctx.lineWidth = 0.5;
       const gridSize = 60;
       for (let x = 0; x < canvas.width; x += gridSize) {
@@ -100,7 +100,7 @@ export function InteractiveGridBg() {
         ctx.stroke();
       }
 
-      // 2. Draw Target Tracker HUD centered on cursor
+      // 2. Draw Target Tracker HUD centered on cursor (Cyan theme)
       if (mouse.x > 0 && mouse.x < canvas.width) {
         rotationRef.current.r1 += 0.015;
         rotationRef.current.r2 -= 0.008;
@@ -112,7 +112,7 @@ export function InteractiveGridBg() {
         ctx.translate(rx, ry);
 
         // Outer segmented compass ring
-        ctx.strokeStyle = 'rgba(34, 197, 94, 0.2)';
+        ctx.strokeStyle = 'rgba(6, 182, 212, 0.2)';
         ctx.lineWidth = 1;
         ctx.setLineDash([8, 12]);
         ctx.rotate(rotationRef.current.r2);
@@ -121,7 +121,7 @@ export function InteractiveGridBg() {
         ctx.stroke();
 
         // Inner solid rotating ring
-        ctx.strokeStyle = 'rgba(34, 197, 94, 0.35)';
+        ctx.strokeStyle = 'rgba(6, 182, 212, 0.35)';
         ctx.lineWidth = 1.5;
         ctx.setLineDash([]);
         ctx.rotate(rotationRef.current.r1);
@@ -133,7 +133,7 @@ export function InteractiveGridBg() {
         ctx.stroke();
 
         // Inner target reticle
-        ctx.strokeStyle = 'rgba(34, 197, 94, 0.4)';
+        ctx.strokeStyle = 'rgba(6, 182, 212, 0.4)';
         ctx.lineWidth = 1;
         ctx.beginPath();
         // Crosshair hairs
@@ -144,7 +144,7 @@ export function InteractiveGridBg() {
         ctx.stroke();
 
         // Small center dot
-        ctx.fillStyle = 'rgba(34, 197, 94, 0.8)';
+        ctx.fillStyle = 'rgba(6, 182, 212, 0.8)';
         ctx.beginPath();
         ctx.arc(0, 0, 2, 0, Math.PI * 2);
         ctx.fill();
@@ -152,7 +152,7 @@ export function InteractiveGridBg() {
         ctx.restore();
 
         // 3. HUD status text data offset from cursor
-        ctx.fillStyle = 'rgba(34, 197, 94, 0.4)';
+        ctx.fillStyle = 'rgba(6, 182, 212, 0.4)';
         ctx.font = 'bold 9px monospace';
         ctx.textAlign = 'left';
         ctx.fillText(`SYS_LOC: [${Math.round(rx)}, ${Math.round(ry)}]`, rx + 85, ry - 15);
@@ -160,7 +160,7 @@ export function InteractiveGridBg() {
         ctx.fillText('FREQ: 5.8GHZ // CH: 12', rx + 85, ry + 9);
 
         // Draw dotted line connecting cursor to info text
-        ctx.strokeStyle = 'rgba(34, 197, 94, 0.25)';
+        ctx.strokeStyle = 'rgba(6, 182, 212, 0.25)';
         ctx.lineWidth = 0.75;
         ctx.beginPath();
         ctx.moveTo(rx + 55, ry - 10);
@@ -168,7 +168,7 @@ export function InteractiveGridBg() {
         ctx.stroke();
       }
 
-      // 4. Update and draw binary burst particles
+      // 4. Update and draw binary burst particles (Cyan)
       const particles = particlesRef.current;
       ctx.textAlign = 'center';
       for (let i = particles.length - 1; i >= 0; i--) {
@@ -182,23 +182,23 @@ export function InteractiveGridBg() {
           continue;
         }
 
-        ctx.fillStyle = `rgba(34, 197, 94, ${p.alpha})`;
+        ctx.fillStyle = `rgba(6, 182, 212, ${p.alpha})`;
         ctx.font = `bold ${p.size}px monospace`;
         ctx.fillText(p.text, p.x, p.y);
       }
 
-      // 5. Draw a scanning vertical laser line sweeping across the screen
+      // 5. Draw a scanning vertical laser line sweeping across the screen (Cyan)
       const sweepY = (Date.now() / 25) % (canvas.height + 200) - 100;
       const sweepGrad = ctx.createLinearGradient(0, sweepY - 40, 0, sweepY + 4);
-      sweepGrad.addColorStop(0, 'rgba(34, 197, 94, 0)');
-      sweepGrad.addColorStop(0.9, 'rgba(34, 197, 94, 0.08)');
-      sweepGrad.addColorStop(1, 'rgba(34, 197, 94, 0.25)');
+      sweepGrad.addColorStop(0, 'rgba(6, 182, 212, 0)');
+      sweepGrad.addColorStop(0.9, 'rgba(6, 182, 212, 0.08)');
+      sweepGrad.addColorStop(1, 'rgba(6, 182, 212, 0.25)');
 
       ctx.fillStyle = sweepGrad;
-      ctx.fillRect(0, sweepY - 40, canvas.width, 40);
+      ctx.fillRect(0, 0, canvas.width, canvas.height); // We use vertical sweep
 
       // Horizontal scanner laser line
-      ctx.strokeStyle = 'rgba(34, 197, 94, 0.3)';
+      ctx.strokeStyle = 'rgba(6, 182, 212, 0.3)';
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(0, sweepY);
