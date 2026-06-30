@@ -13,17 +13,17 @@ export function SplashPage({ onStart }: SplashPageProps) {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/5 rounded-full blur-[100px] pointer-events-none"></div>
 
+      {/* Pusbuk Logo on Absolute Top Left - Responsive Size */}
+      <div className="absolute top-3 left-3 sm:top-5 sm:left-5 z-50 flex items-center bg-slate-955/60 border border-purple-950/40 backdrop-blur-md px-2.5 py-1.5 rounded-xl shadow-lg shrink-0">
+        <img 
+          src={logoPusbuk} 
+          alt="Logo Pusbuk" 
+          className="h-6 sm:h-8 md:h-10 w-auto object-contain"
+        />
+      </div>
+
       {/* Main Container */}
       <div className="z-10 max-w-xl w-full flex flex-col items-center text-center p-4">
-        {/* Pusbuk Logo Centered */}
-        <div className="flex items-center justify-center bg-slate-950/80 border border-purple-955 px-3 py-1.5 rounded-2xl shadow-xl mb-6 shrink-0">
-          <img 
-            src={logoPusbuk} 
-            alt="Logo Pusbuk" 
-            className="h-8 md:h-10 w-auto object-contain"
-          />
-        </div>
-
         {/* Title (h1) */}
         <h1 className="text-3xl md:text-6xl font-extrabold tracking-tight font-display mb-3 select-none uppercase">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-500 to-pink-500">
