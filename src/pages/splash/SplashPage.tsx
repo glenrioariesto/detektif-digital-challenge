@@ -14,11 +14,11 @@ export function SplashPage({ onStart }: SplashPageProps) {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/5 rounded-full blur-[100px] pointer-events-none"></div>
 
       {/* Pusbuk Logo on Absolute Top Left - Responsive Size */}
-      <div className="absolute top-3 left-3 sm:top-5 sm:left-5 z-50 flex items-center bg-slate-955/60 border border-purple-950/40 backdrop-blur-md px-2.5 py-1.5 rounded-xl shadow-lg shrink-0">
+      <div className="absolute top-3 left-3 sm:top-5 sm:left-5 z-50 flex items-center bg-slate-955/60 border border-purple-950/40 backdrop-blur-md px-3 py-2 rounded-2xl shadow-xl shrink-0 animate-fadeIn">
         <img 
           src={logoPusbuk} 
           alt="Logo Pusbuk" 
-          className="h-6 sm:h-8 md:h-10 w-auto object-contain"
+          className="h-10 sm:h-14 md:h-16 w-auto object-contain"
         />
       </div>
 
