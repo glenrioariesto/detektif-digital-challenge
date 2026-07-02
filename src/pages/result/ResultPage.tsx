@@ -21,28 +21,28 @@ export function ResultPage({ score, answers, onRestart, getRank }: ResultPagePro
       <div className="absolute top-10 left-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="z-10 max-w-3xl w-full flex flex-col items-center select-none animate-fadeIn max-h-[95vh] overflow-y-auto pr-1">
+      <div className="z-10 max-w-3xl w-full flex flex-col items-center select-none animate-fadeIn">
         {/* Victory/Shield Icon */}
-        <div className="w-12 h-12 rounded-full bg-slate-900 border-2 border-cyan-400 flex items-center justify-center mb-3 glow-cyan shrink-0">
-          <Award className="w-6 h-6 text-cyan-400" />
+        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900 border-2 border-cyan-400 flex items-center justify-center mb-2 sm:mb-3 glow-cyan shrink-0">
+          <Award className="w-5.5 h-5.5 sm:w-6 sm:h-6 text-cyan-400" />
         </div>
 
         {/* Headings */}
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-display mb-0.5 text-center shrink-0">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold font-display mb-0.5 text-center shrink-0">
           Laporan Hasil Penyelidikan
         </h2>
-        <p className="text-[9px] font-mono text-slate-400 uppercase tracking-widest mb-4 shrink-0">
+        <p className="text-[8px] sm:text-[9px] font-mono text-slate-400 uppercase tracking-widest mb-3 sm:mb-4 shrink-0">
           Berkas Misi #DET-101 Selesai Evaluasi
         </p>
 
-        {/* Score & Rank Dashboard Card */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 w-full mb-6 shrink-0">
+        {/* Score & Rank Dashboard Card (Side-by-side columns on all screens) */}
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full mb-4 sm:mb-6 shrink-0">
           {/* Circular Score Circle */}
-          <div className="md:col-span-4 bg-slate-900/60 border border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center text-center backdrop-blur-md">
-            <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-3">
+          <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-3 sm:p-4 flex flex-col items-center justify-center text-center backdrop-blur-md">
+            <span className="text-[8px] sm:text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-2 sm:mb-3">
               Nilai Akurasi
             </span>
-            <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center">
+            <div className="relative w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center">
               <div className="absolute inset-0 rounded-full border-4 border-slate-800"></div>
               <div 
                 className="absolute inset-0 rounded-full border-4 border-cyan-400"
@@ -52,61 +52,61 @@ export function ResultPage({ score, answers, onRestart, getRank }: ResultPagePro
                 }}
               ></div>
               <div className="flex flex-col items-center">
-                <span className="text-2xl font-black font-mono text-white">{accuracy}%</span>
-                <span className="text-[8px] font-mono text-cyan-400 uppercase font-semibold">{score} / {CASES_DATA.length} Benar</span>
+                <span className="text-xl sm:text-2xl font-black font-mono text-white">{accuracy}%</span>
+                <span className="text-[7px] sm:text-[8px] font-mono text-cyan-400 uppercase font-semibold mt-0.5 sm:mt-1">{score} / {CASES_DATA.length} Benar</span>
               </div>
             </div>
           </div>
 
           {/* Rank description badge */}
-          <div className="md:col-span-8 bg-slate-900/60 border border-slate-800 rounded-2xl p-4 flex flex-col justify-center backdrop-blur-md relative overflow-hidden">
+          <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-3 sm:p-4 flex flex-col justify-center backdrop-blur-md relative overflow-hidden">
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-cyan-500/5 rounded-full blur-xl pointer-events-none"></div>
             
-            <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-1.5">
+            <span className="text-[8px] sm:text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-1">
               Pangkat Detektif
             </span>
             
-            <div className={`inline-flex self-start border px-2.5 py-1 rounded-lg text-[10px] sm:text-xs font-mono font-bold mb-2 ${rank.color}`}>
+            <div className={`inline-flex self-start border px-2 py-0.5 sm:px-2.5 sm:py-1 rounded text-[8px] sm:text-[10px] font-mono font-bold mb-1.5 ${rank.color}`}>
               {rank.title}
             </div>
 
-            <p className="text-slate-300 text-[11px] sm:text-xs leading-relaxed mb-3 font-medium">
+            <p className="text-slate-300 text-[10px] sm:text-xs leading-relaxed mb-2 line-clamp-2 sm:line-clamp-none font-medium text-justify">
               {rank.desc}
             </p>
             
-            <div className="flex items-center gap-4 text-[10px] font-mono text-slate-400 font-bold">
-              <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
+            <div className="flex items-center gap-3 sm:gap-4 text-[8px] sm:text-[10px] font-mono text-slate-400 font-bold">
+              <div className="flex items-center gap-1">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"></div>
                 <span>Benar: {score}</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-rose-500"></div>
+              <div className="flex items-center gap-1">
+                <div className="w-1.5 h-1.5 rounded-full bg-rose-500"></div>
                 <span>Salah: {CASES_DATA.length - score}</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md shrink-0">
+        {/* Action Buttons (Side-by-side row on all screens) */}
+        <div className="flex flex-row items-center gap-3 w-full max-w-lg shrink-0">
           {/* Toggle Modal Table Button */}
           <button
             type="button"
             onClick={() => setIsModalOpen(true)}
-            className="w-full py-2.5 sm:py-3 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-cyan-400 rounded-xl text-xs font-mono font-bold flex items-center justify-center gap-2 transition-all cursor-pointer hover:scale-[1.02] active:scale-98"
+            className="flex-1 py-2 sm:py-3 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-cyan-400 rounded-xl text-[10px] sm:text-xs font-mono font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-[1.02] active:scale-98"
           >
-            <BookOpen className="w-4 h-4 text-cyan-400" />
-            <span>Lihat Detail Pemeriksaan</span>
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>Detail Kasus</span>
           </button>
 
           {/* Restart Button */}
           <button
             type="button"
             onClick={onRestart}
-            className="w-full py-2.5 sm:py-3 bg-gradient-to-r from-cyan-500 to-indigo-600 border border-cyan-500 hover:from-cyan-400 hover:to-indigo-500 text-slate-950 rounded-xl text-xs font-mono font-bold flex items-center justify-center gap-2 transition-all cursor-pointer hover:scale-[1.02] active:scale-98"
+            className="flex-1 py-2 sm:py-3 bg-gradient-to-r from-cyan-500 to-indigo-600 border border-cyan-500 hover:from-cyan-400 hover:to-indigo-500 text-slate-950 rounded-xl text-[10px] sm:text-xs font-mono font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-[1.02] active:scale-98"
           >
-            <RotateCcw className="w-4 h-4" />
-            <span>Mulai Ulang Penyelidikan</span>
+            <RotateCcw className="w-3.5 h-3.5 text-cyan-950" />
+            <span>Mulai Ulang</span>
           </button>
         </div>
 
