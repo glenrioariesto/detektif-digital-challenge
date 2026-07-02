@@ -1,30 +1,51 @@
 import { Case } from '../types';
 
+import level1Ai from '../../assets/level-1-ai.jpeg';
+import level1Real from '../../assets/level-1-real.jpeg';
+import level2Ai from '../../assets/level-2-ai.jpeg';
+import level2Real from '../../assets/level-2-real.jpeg';
+import level3Ai from '../../assets/level-3-ai.jpeg';
+import level3Real from '../../assets/level-3-real.jpeg';
+import level4Ai from '../../assets/level-4-ai.jpeg';
+import level4Real from '../../assets/level-4-real.jpeg';
+import level5Ai from '../../assets/level-5-ai.jpeg';
+import level5Real from '../../assets/level-5-real.jpeg';
+import level6Ai from '../../assets/level-6-ai.jpeg';
+import level6Real from '../../assets/level-6-real.jpeg';
+import level7Ai from '../../assets/level-7-ai.jpeg';
+import level7Real from '../../assets/level-7-real.jpeg';
+import level8Ai from '../../assets/level-8-ai.jpeg';
+import level8Real from '../../assets/level-8-real.jpeg';
+import level9Ai from '../../assets/level-9-ai.jpeg';
+import level9Real from '../../assets/level-9-real.jpeg';
+import level10Ai from '../../assets/level-10-ai.jpeg';
+import level10Real from '../../assets/level-10-real.jpeg';
+
 export const CASES_DATA: Case[] = [
   {
     id: 1,
-    title: "Potret Wajah di Kedai Kopi",
-    category: "Anatomi Wajah & Tekstur Kulit",
-    description: "Periksa dua potret wanita ini. Salah satunya adalah foto jepretan kamera DSLR asli, sementara yang lain adalah hasil render AI (KA) dengan pencahayaan studio ultra-sempurna. Perhatikan detail tekstur kulit dan mata.",
-    imageA: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&auto=format&fit=crop&q=80",
-    imageB: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&auto=format&fit=crop&q=80",
+    title: "Kucing Manis di Atas Karpet",
+    category: "Tekstur Bulu & Pola Karpet rajut",
+    description: "Mendeteksi bulu hewan dan pola berulang adalah tantangan bagi AI. Salah satu gambar di bawah menampilkan kucing asli, dan yang lainnya adalah hasil generator AI yang mencoba meniru pola wol rajut.",
+    imageA: level1Ai,
+    imageB: level1Real,
     realImage: "B",
     aiImage: "A",
-    locationOfArtifacts: "Mata, Anting-Anting & Rambut Halus",
+    locationOfArtifacts: "Kumis Kucing & Serat Rajutan",
     clues: [
-      "Periksa anting-anting di Gambar A: apakah pola kiri dan kanan simetris dan terpasang dengan logis?",
-      "Lihat pantulan cahaya (catchlight) di kornea mata Gambar A. Apakah bentuknya bulat sempurna atau agak distorsi?",
-      "Perhatikan helai rambut halus (stray hairs) di Gambar B yang jatuh secara acak di dahi dan pelipis."
+      "Perhatikan kumis kucing di Gambar A. Apakah kumis tersebut tumbuh dari titik folikel yang tepat pada moncongnya?",
+      "Periksa pola rajutan di latar belakang Gambar A. Apakah polanya konsisten atau ada area yang mendadak buram/berubah bentuk?",
+      "Lihat pantulan mata kucing. Apakah pupil mata kiri dan kanan memiliki bentuk yang sejalan dengan pencahayaan ruangan?"
     ],
-    explanation: "Gambar B adalah FOTO ASLI. Kulit subjek memiliki ketidaksempurnaan alami seperti pori-pori yang tidak merata, kemerahan, dan helai rambut halus yang jatuh secara tidak beraturan. Gambar A adalah HASIL KA. Meskipun terlihat sangat menakjubkan, kulitnya terlalu mulus secara tidak merata (efek plastik), pantulan cahaya di matanya memiliki bentuk tidak beraturan yang tidak sesuai dengan sumber cahaya, dan anting-antingnya tampak 'menyatu' dengan cuping telinga tanpa pengait yang jelas."
+    explanation: "Gambar B adalah FOTO ASLI. Bulu-bulu halus di telinga dan kumis kucing tumbuh secara acak namun logis dari folikel kulitnya, serta tekstur lingkungan sekitarnya sangat alami. Gambar A adalah HASIL KA. Generator AI sering kali membuat kumis kucing yang melayang atau tumbuh dari tempat yang salah (seperti dari pipi atas), dan detail serat rajutan di sekitarnya cenderung kehilangan strukturnya di beberapa bagian, berubah menjadi pola acak yang tidak masuk akal."
   },
   {
     id: 2,
     title: "Jari Tangan Memegang Cangkir",
     category: "Anatomi Tangan & Integrasi Objek",
     description: "Kecerdasan Artifisial terkenal sangat kesulitan menggambar tangan manusia secara akurat. Bandingkan kedua gambar yang memperlihatkan tangan memegang cangkir/makanan ini.",
-    imageA: "https://images.unsplash.com/photo-1517256064527-09c53b2d0bc6?w=800&auto=format&fit=crop&q=80",
-    imageB: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&auto=format&fit=crop&q=80",
+    imageA: level2Real,
+    imageB: level2Ai,
     realImage: "A",
     aiImage: "B",
     locationOfArtifacts: "Sendi Jari, Kuku & Gagang Cangkir",
@@ -37,28 +58,28 @@ export const CASES_DATA: Case[] = [
   },
   {
     id: 3,
-    title: "Kucing Manis di Atas Karpet",
-    category: "Tekstur Bulu & Pola Karpet rajut",
-    description: "Mendeteksi bulu hewan dan pola berulang adalah tantangan bagi AI. Salah satu gambar di bawah menampilkan kucing asli, dan yang lainnya adalah hasil generator AI yang mencoba meniru pola wol rajut.",
-    imageA: "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=800&auto=format&fit=crop&q=80",
-    imageB: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&auto=format&fit=crop&q=80",
+    title: "Potret Wajah di Kedai Kopi",
+    category: "Anatomi Wajah & Tekstur Kulit",
+    description: "Periksa dua potret wanita ini. Salah satunya adalah foto jepretan kamera DSLR asli, sementara yang lain adalah hasil render AI (KA) dengan pencahayaan studio ultra-sempurna. Perhatikan detail tekstur kulit dan mata.",
+    imageA: level3Ai,
+    imageB: level3Real,
     realImage: "B",
     aiImage: "A",
-    locationOfArtifacts: "Kumis Kucing & Serat Rajutan",
+    locationOfArtifacts: "Mata, Anting-Anting & Rambut Halus",
     clues: [
-      "Perhatikan kumis kucing di Gambar A. Apakah kumis tersebut tumbuh dari titik folikel yang tepat pada moncongnya?",
-      "Periksa pola rajutan di latar belakang Gambar A. Apakah polanya konsisten atau ada area yang mendadak buram/berubah bentuk?",
-      "Lihat pantulan mata kucing. Apakah pupil mata kiri dan kanan memiliki bentuk yang sejalan dengan pencahayaan ruangan?"
+      "Periksa anting-anting di Gambar A: apakah pola kiri dan kanan simetris dan terpasang dengan logis?",
+      "Lihat pantulan cahaya (catchlight) di kornea mata Gambar A. Apakah bentuknya bulat sempurna atau agak distorsi?",
+      "Perhatikan helai rambut halus (stray hairs) di Gambar B yang jatuh secara acak di dahi dan pelipis."
     ],
-    explanation: "Gambar B adalah FOTO ASLI. Bulu-bulu halus di telinga dan kumis kucing tumbuh secara acak namun logis dari folikel kulitnya, serta tekstur lingkungan sekitarnya sangat alami. Gambar A adalah HASIL KA. Generator AI sering kali membuat kumis kucing yang melayang atau tumbuh dari tempat yang salah (seperti dari pipi atas), dan detail serat rajutan di sekitarnya cenderung kehilangan strukturnya di beberapa bagian, berubah menjadi pola acak yang tidak masuk akal."
+    explanation: "Gambar B adalah FOTO ASLI. Kulit subjek memiliki ketidaksempurnaan alami seperti pori-pori yang tidak merata, kemerahan, dan helai rambut halus yang jatuh secara tidak beraturan. Gambar A adalah HASIL KA. Meskipun terlihat sangat menakjubkan, kulitnya terlalu mulus secara tidak merata (efek plastik), pantulan cahaya di matanya memiliki bentuk tidak beraturan yang tidak sesuai dengan sumber cahaya, dan anting-antingnya tampak 'menyatu' dengan cuping telinga tanpa pengait yang jelas."
   },
   {
     id: 4,
     title: "Pemandangan Kota Malam Hari",
     category: "Teks Reklame & Refleksi Cahaya",
     description: "Lampu neon kota dan papan nama adalah musuh bebuyutan AI generasi lama dan menengah. AI sering gagal mengeja teks pada papan nama jalan atau menghasilkan teks cermin yang tidak logis pada aspal basah.",
-    imageA: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&auto=format&fit=crop&q=80",
-    imageB: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=800&auto=format&fit=crop&q=80",
+    imageA: level4Real,
+    imageB: level4Ai,
     realImage: "A",
     aiImage: "B",
     locationOfArtifacts: "Huruf pada Papan Nama & Bayangan Air",
@@ -74,8 +95,8 @@ export const CASES_DATA: Case[] = [
     title: "Momen Kebersamaan di Taman",
     category: "Interaksi Sosial & Konsistensi Cahaya",
     description: "Memotret beberapa orang sekaligus dalam satu frame adalah hal sulit bagi AI karena harus menjaga konsistensi arah cahaya, bayangan, dan anatomi setiap individu di dalam kelompok.",
-    imageA: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&auto=format&fit=crop&q=80",
-    imageB: "https://images.unsplash.com/photo-1484712401471-05c7215834eb?w=800&auto=format&fit=crop&q=80",
+    imageA: level5Ai,
+    imageB: level5Real,
     realImage: "B",
     aiImage: "A",
     locationOfArtifacts: "Detail Wajah Belakang, Jari & Bayangan",
@@ -91,14 +112,14 @@ export const CASES_DATA: Case[] = [
     title: "Membaca Buku di Perpustakaan",
     category: "Detail Teks & Halaman Buku",
     description: "Periksa halaman buku yang sedang dibaca. Foto asli akan menangkap baris-baris kalimat yang tercetak rapi pada kertas, sedangkan AI sering menghasilkan barisan coretan meliuk-liuk yang tidak bermakna.",
-    imageA: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=800&auto=format&fit=crop&q=80",
-    imageB: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&auto=format&fit=crop&q=80",
+    imageA: level6Real,
+    imageB: level6Ai,
     realImage: "A",
     aiImage: "B",
     locationOfArtifacts: "Baris Kalimat & Tekstur Kertas Kuno",
     clues: [
       "Perhatikan halaman terbuka di Gambar A. Apakah baris teksnya lurus sejajar dan membentuk karakter huruf yang nyata?",
-      "Lihat buku-buku di Gambar B. Apakah ketebalan halaman dan jilidnya terlihat realistis atau seperti balok padat berpola?",
+      "Lihat buku-buku di Gambar B. Apakah ketebalan halaman and jilidnya terlihat realistis atau seperti balok padat berpola?",
       "Periksa bayangan jemari di atas halaman buku. Apakah bayangan tersebut mengikuti lekukan kertas?"
     ],
     explanation: "Gambar A adalah FOTO ASLI. Halaman buku menunjukkan teks tercetak dengan layout baris yang lurus dan bayangan jari pembaca jatuh secara realistis di atas kertas melengkung. Gambar B adalah HASIL KA. Buku-buku tersebut tampak terlalu sempurna layaknya objek 3D dalam game, tepi-tepi kertasnya terlalu mulus, dan jika Anda mencoba mengeja tulisan di punggung buku, Anda akan menemukan keanehan bentuk karakter yang tidak terbaca."
@@ -108,8 +129,8 @@ export const CASES_DATA: Case[] = [
     title: "Pantulan di Kacamata Hitam",
     category: "Hukum Fisika Refleksi Cahaya",
     description: "Kacamata hitam reflektif bertindak sebagai cermin ganda. Foto asli harus mematuhi hukum fisika di mana kedua lensa memantulkan lingkungan yang sama dari sudut pandang yang sedikit berbeda. AI sering gagal menyinkronkan kedua pantulan ini.",
-    imageA: "https://images.unsplash.com/photo-1513001900722-370f803f498d?w=800&auto=format&fit=crop&q=80",
-    imageB: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&auto=format&fit=crop&q=80",
+    imageA: level7Ai,
+    imageB: level7Real,
     realImage: "B",
     aiImage: "A",
     locationOfArtifacts: "Lensa Kiri vs Lensa Kanan & Bingkai",
@@ -125,8 +146,8 @@ export const CASES_DATA: Case[] = [
     title: "Hidangan Lezat di Atas Meja",
     category: "Tekstur Makanan & Konsistensi Bahan",
     description: "Makanan asli memiliki ketidaksempurnaan organik: kelembapan yang tidak merata, serat daging, biji wijen yang letaknya acak, atau bagian gosong yang tipis. AI cenderung membuat makanan terlihat terlalu mengkilap seperti dilapisi lilin.",
-    imageA: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&auto=format&fit=crop&q=80",
-    imageB: "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=800&auto=format&fit=crop&q=80",
+    imageA: level8Real,
+    imageB: level8Ai,
     realImage: "A",
     aiImage: "B",
     locationOfArtifacts: "Kilauan Minyak, Serat Sayur & Tepian Piring",
@@ -142,8 +163,8 @@ export const CASES_DATA: Case[] = [
     title: "Lanskap Pegunungan & Danau",
     category: "Refleksi Air & Detail Geometris Alam",
     description: "Di alam bebas, air bertindak sebagai reflektor yang mendistorsi cahaya sesuai riak gelombang. AI sering kali membuat refleksi air yang terlalu sempurna atau justru polanya terputus secara tidak logis.",
-    imageA: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop&q=80",
-    imageB: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80",
+    imageA: level9Ai,
+    imageB: level9Real,
     realImage: "B",
     aiImage: "A",
     locationOfArtifacts: "Riak Gelombang & Puncak Gunung Refleksi",
@@ -159,8 +180,8 @@ export const CASES_DATA: Case[] = [
     title: "Potret Kakek Bersahaja",
     category: "Tekstur Kulit Lansia & Kerutan Wajah",
     description: "Kerutan wajah orang tua adalah salah satu detail paling kompleks. Kamera asli menangkap kerutan mikro, pori-pori kering, dan rambut halus. AI sering kali membuat kerutan yang terlalu rapi atau kulit yang tampak licin di sela-sela kerutan.",
-    imageA: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=800&auto=format&fit=crop&q=80",
-    imageB: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=800&auto=format&fit=crop&q=80",
+    imageA: level10Real,
+    imageB: level10Ai,
     realImage: "A",
     aiImage: "B",
     locationOfArtifacts: "Kerutan Mata, Pori-pori Kulit & Kumis",
