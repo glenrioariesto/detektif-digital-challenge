@@ -125,49 +125,51 @@ export function ArenaPage({
         {/* MODAL 1: DETECTIVE CLUES BOARD */}
         {isClueOpen && (
           <div className="absolute inset-0 bg-black/75 backdrop-blur-sm z-40 flex items-center justify-center p-4 animate-fadeIn">
-            <div className="w-full max-w-md bg-[#070514]/95 border-2 border-cyan-800 rounded-2xl p-5 shadow-2xl relative font-sans">
+            <div className="w-full max-w-md bg-[#070514]/95 border-2 border-cyan-800 rounded-2xl p-4 sm:p-5 shadow-2xl relative font-sans max-h-[90vh] overflow-y-auto flex flex-col">
               <button
                 type="button"
                 onClick={() => setIsClueOpen(false)}
-                className="absolute top-4 right-4 text-cyan-500 hover:text-white transition-colors cursor-pointer"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 text-cyan-500 hover:text-white transition-colors cursor-pointer z-10"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
 
-              <div className="flex items-center gap-2 border-b border-cyan-950 pb-2 mb-4 font-mono">
-                <HelpCircle className="w-4 h-4 text-cyan-400" />
-                <h4 className="text-xs font-bold text-slate-100 uppercase tracking-wider">
+              <div className="flex items-center gap-2 border-b border-cyan-950 pb-1.5 sm:pb-2 mb-3 sm:mb-4 font-mono shrink-0">
+                <HelpCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400" />
+                <h4 className="text-[10px] sm:text-xs font-bold text-slate-100 uppercase tracking-wider">
                   Petunjuk Penyelidikan
                 </h4>
               </div>
 
-              <div className="mb-4">
-                <span className="text-[9px] font-mono font-bold text-cyan-400 uppercase tracking-widest bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-900/30">
-                  {activeCase.category}
-                </span>
-                <p className="text-xs text-slate-350 mt-3 leading-relaxed text-justify">
-                  {activeCase.description}
-                </p>
-              </div>
+              <div className="mb-3 sm:mb-4 overflow-y-auto pr-1">
+                <div className="mb-3 shrink-0">
+                  <span className="text-[8px] sm:text-[9px] font-mono font-bold text-cyan-400 uppercase tracking-widest bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-900/30">
+                    {activeCase.category}
+                  </span>
+                  <p className="text-[11px] sm:text-xs text-slate-350 mt-2 sm:mt-3 leading-relaxed text-justify">
+                    {activeCase.description}
+                  </p>
+                </div>
 
-              <div className="bg-cyan-950/20 border border-cyan-900/40 rounded-xl p-3.5 mb-4">
-                <span className="text-[9px] font-mono font-bold text-cyan-400 uppercase tracking-wider block mb-2 border-b border-cyan-950 pb-1">
-                  Petunjuk Detail:
-                </span>
-                <ul className="flex flex-col gap-2.5">
-                  {activeCase.clues.map((clue, idx) => (
-                    <li key={clue} className="flex gap-2 text-xs text-slate-300 leading-relaxed">
-                      <span className="text-cyan-400 select-none font-mono">0{idx + 1}.</span>
-                      <span>{clue}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="bg-cyan-950/20 border border-cyan-900/40 rounded-xl p-2.5 sm:p-3.5">
+                  <span className="text-[8px] sm:text-[9px] font-mono font-bold text-cyan-400 uppercase tracking-wider block mb-1.5 sm:mb-2 border-b border-cyan-950 pb-1">
+                    Petunjuk Detail:
+                  </span>
+                  <ul className="flex flex-col gap-2 sm:gap-2.5">
+                    {activeCase.clues.map((clue, idx) => (
+                      <li key={clue} className="flex gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-slate-350 leading-relaxed">
+                        <span className="text-cyan-400 select-none font-mono">0{idx + 1}.</span>
+                        <span>{clue}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
               <button
                 type="button"
                 onClick={() => setIsClueOpen(false)}
-                className="w-full py-2 bg-cyan-950 hover:bg-cyan-900 border border-cyan-700 text-cyan-100 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer text-center"
+                className="w-full py-2 bg-cyan-950 hover:bg-cyan-900 border border-cyan-700 text-cyan-100 rounded-lg text-[10px] sm:text-xs font-mono font-bold transition-colors cursor-pointer text-center shrink-0"
               >
                 Kembali ke Arena
               </button>
@@ -178,39 +180,39 @@ export function ArenaPage({
         {/* MODAL 2: FEEDBACK / REVEAL OVERLAY */}
         {showFeedback && (
           <div className="absolute inset-0 bg-black/85 backdrop-blur-md z-45 flex items-center justify-center p-4 animate-fadeIn">
-            <div className="w-full max-w-md bg-[#070514]/95 border-2 border-cyan-500 rounded-2xl p-5 shadow-2xl relative text-center">
+            <div className="w-full max-w-md bg-[#070514]/95 border-2 border-cyan-500 rounded-2xl p-4 sm:p-5 shadow-2xl relative text-center max-h-[90vh] overflow-y-auto flex flex-col justify-center">
               
               {/* Correctness Header */}
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg ${
+              <div className={`w-9 h-9 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3 shadow-lg shrink-0 ${
                 isCorrect 
                   ? 'bg-cyan-950/60 border-2 border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.3)]' 
                   : 'bg-rose-950/60 border-2 border-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.3)]'
               }`}>
                 {isCorrect ? (
-                  <CheckCircle2 className="w-6 h-6 text-cyan-400 animate-pulse" />
+                  <CheckCircle2 className="w-4 h-4 sm:w-6 sm:h-6 text-cyan-400 animate-pulse" />
                 ) : (
-                  <XCircle className="w-6 h-6 text-rose-500" />
+                  <XCircle className="w-4 h-4 sm:w-6 sm:h-6 text-rose-500" />
                 )}
               </div>
 
-              <h3 className={`text-sm font-black uppercase tracking-widest mb-1 ${
+              <h3 className={`text-xs sm:text-sm font-black uppercase tracking-widest mb-0.5 sm:mb-1 shrink-0 ${
                 isCorrect ? 'text-cyan-400' : 'text-rose-500'
               }`}>
                 {isCorrect ? 'ANALISIS BENAR!' : 'ANALISIS KELIRU!'}
               </h3>
-              <p className="text-[9px] font-mono text-slate-400 uppercase tracking-wider mb-4">
+              <p className="text-[8px] sm:text-[9px] font-mono text-slate-400 uppercase tracking-wider mb-2.5 sm:mb-4 shrink-0">
                 Kasus ke-{currentCaseIndex + 1}
               </p>
 
               {/* Reveal details */}
-              <div className={`border rounded-xl p-4 mb-5 text-left max-h-[180px] overflow-y-auto ${
+              <div className={`border rounded-xl p-3 sm:p-4 mb-3 sm:mb-5 text-left max-h-[100px] sm:max-h-[180px] overflow-y-auto shrink-0 ${
                 isCorrect ? 'bg-cyan-950/20 border-cyan-900/40' : 'bg-rose-950/20 border-rose-900/40'
               }`}>
-                <p className="font-mono text-xs text-white mb-2 border-b border-slate-800 pb-1">
+                <p className="font-mono text-[10px] sm:text-xs text-white mb-1.5 sm:mb-2 border-b border-slate-800 pb-1">
                   Jawaban: <span className="text-cyan-400 font-bold">Gambar {activeCase.realImage}</span> adalah Asli,{' '}
                   <span className="text-indigo-400 font-bold">Gambar {activeCase.aiImage}</span> adalah KA.
                 </p>
-                <p className="text-xs text-slate-300 leading-relaxed font-sans text-justify">
+                <p className="text-[11px] sm:text-xs text-slate-350 leading-relaxed font-sans text-justify">
                   {activeCase.explanation}
                 </p>
               </div>
@@ -218,14 +220,14 @@ export function ArenaPage({
               <button
                 type="button"
                 onClick={onAdvance}
-                className={`w-full py-3 border text-black rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer hover:scale-[1.02] active:scale-98 ${
+                className={`w-full py-2.5 sm:py-3 border text-black rounded-xl text-[10px] sm:text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer hover:scale-[1.02] active:scale-98 shrink-0 ${
                   isCorrect 
                     ? 'bg-cyan-400 border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.25)] hover:bg-cyan-300' 
                     : 'bg-rose-500 border-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.25)] hover:bg-rose-450 text-white'
                 }`}
               >
                 <span>{currentCaseIndex === totalCases - 1 ? 'Lihat Hasil Akhir' : 'Lanjut ke Kasus Berikutnya'}</span>
-                <ArrowRight className="w-4.5 h-4.5 stroke-[2.5px]" />
+                <ArrowRight className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.5px]" />
               </button>
             </div>
           </div>
