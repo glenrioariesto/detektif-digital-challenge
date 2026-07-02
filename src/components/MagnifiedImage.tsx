@@ -100,7 +100,7 @@ export function MagnifiedImage({
     <button
       ref={containerRef}
       type="button"
-      className={`relative flex-1 group overflow-hidden rounded-2xl border-2 transition-all duration-300 cursor-crosshair max-w-[48%] h-[380px] md:h-[420px] bg-slate-950 flex items-center justify-center text-left ${
+      className={`relative flex-1 group overflow-hidden rounded-2xl border-2 transition-all duration-300 cursor-crosshair max-w-[48%] h-[160px] xs:h-[200px] sm:h-[280px] md:h-[360px] lg:h-[420px] bg-slate-950 flex items-center justify-center text-left ${
         isSelected
           ? 'border-cyan-400 glow-cyan ring-1 ring-cyan-400'
           : 'border-slate-800 hover:border-slate-700 hover:scale-[1.01]'
@@ -115,18 +115,18 @@ export function MagnifiedImage({
       aria-label={`Pilih Gambar ${label} sebagai Asli`}
     >
       {/* Label indicator (Gambar A atau B) */}
-      <div className={`absolute top-4 left-4 z-10 font-mono font-bold px-3 py-1.5 rounded-lg border transition-all duration-300 flex items-center gap-1.5 ${
+      <div className={`absolute top-2 left-2 sm:top-4 sm:left-4 z-10 font-mono font-bold px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg border transition-all duration-300 flex items-center gap-1 sm:gap-1.5 ${
         isSelected
           ? 'bg-cyan-950/80 border-cyan-400 text-cyan-400'
           : 'bg-slate-900/80 border-slate-700 text-slate-400 group-hover:border-slate-500'
       }`}>
-        <span className="text-xs uppercase tracking-wider">Gambar</span>
-        <span className="text-sm font-black">{label}</span>
+        <span className="text-[9px] sm:text-xs uppercase tracking-wider">Gambar</span>
+        <span className="text-xs sm:text-sm font-black">{label}</span>
       </div>
 
       {/* Hover Zoom-in Icon Indicator */}
-      <div className="absolute top-4 right-4 z-10 bg-slate-900/60 backdrop-blur-md p-1.5 rounded-full border border-slate-700 text-slate-400 opacity-60 group-hover:opacity-100 transition-opacity">
-        <ZoomIn className="w-4 h-4" />
+      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 bg-slate-900/60 backdrop-blur-md p-1 sm:p-1.5 rounded-full border border-slate-700 text-slate-400 opacity-60 group-hover:opacity-100 transition-opacity">
+        <ZoomIn className="w-3 h-3 sm:w-4 sm:h-4" />
       </div>
 
       {/* The main image */}

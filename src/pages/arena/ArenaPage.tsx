@@ -49,7 +49,7 @@ export function ArenaPage({
         <button
           type="button"
           onClick={onBack}
-          className="absolute top-4 left-4 z-30 w-10 h-10 bg-black/60 backdrop-blur-md border-2 border-cyan-900/60 rounded-full flex items-center justify-center text-cyan-500 hover:text-cyan-300 hover:border-cyan-500 transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95"
+          className="absolute top-4 left-4 z-30 w-10 h-10 bg-black/60 backdrop-blur-md border-2 border-cyan-900/60 rounded-full flex items-center justify-center text-cyan-400 hover:text-cyan-300 hover:border-cyan-500 transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95"
           title="Keluar"
         >
           <ArrowLeft className="w-5 h-5" />
@@ -59,21 +59,6 @@ export function ArenaPage({
         <div className="absolute top-4 right-4 z-30 px-3.5 py-2 bg-black/60 backdrop-blur-md border-2 border-cyan-900/60 rounded-2xl flex items-center gap-2 text-xs font-bold text-cyan-300 shadow-md font-mono">
           <span className="text-cyan-400">Skor:</span>
           <span>{score}</span>
-        </div>
-
-        {/* HUD: Bottom-Left Clues Help Icon Button */}
-        <button
-          type="button"
-          onClick={() => setIsClueOpen(true)}
-          className="absolute bottom-4 left-4 z-30 w-12 h-12 bg-cyan-950/75 hover:bg-cyan-900/80 backdrop-blur-md border-2 border-cyan-600 rounded-full flex items-center justify-center text-cyan-300 hover:text-white transition-all cursor-pointer shadow-lg hover:scale-105 active:scale-95 animate-pulse"
-          title="Petunjuk Penyelidikan"
-        >
-          <Search className="w-5 h-5 text-cyan-400" />
-        </button>
-
-        {/* HUD: Bottom-Right Level Title Info Badge */}
-        <div className="absolute bottom-4 right-4 z-30 px-3.5 py-1.5 bg-black/60 backdrop-blur-md border-2 border-cyan-900/60 rounded-xl text-[10px] sm:text-xs text-cyan-400 font-bold shadow-md font-mono">
-          Kasus {currentCaseIndex + 1} dari {totalCases}: {activeCase.title}
         </div>
 
         {/* Gameplay Area - Center Grid */}
@@ -100,21 +85,34 @@ export function ArenaPage({
           </div>
         </div>
 
-        {/* Bottom Floating Control Center */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 w-[90%] max-w-lg bg-black/85 backdrop-blur-md border-2 border-cyan-900/60 p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-2xl">
-          <div className="text-center sm:text-left">
-            <p className="text-[11px] font-mono font-bold text-cyan-400 uppercase tracking-wider">
-              Manakah gambar yang merupakan FOTO ASLI?
+        {/* Bottom Unified Control Center */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 w-[95%] sm:w-[90%] max-w-lg bg-black/85 backdrop-blur-md border-2 border-cyan-900/60 p-3 rounded-2xl flex items-center justify-between gap-3 shadow-2xl">
+          {/* Integrated Clue Trigger Button */}
+          <button
+            type="button"
+            onClick={() => setIsClueOpen(true)}
+            className="w-10 h-10 bg-cyan-950/75 hover:bg-cyan-900/80 border border-cyan-600 rounded-xl flex items-center justify-center text-cyan-300 hover:text-white transition-all cursor-pointer shrink-0 shadow-md hover:scale-105 active:scale-95"
+            title="Petunjuk Penyelidikan"
+          >
+            <Search className="w-5 h-5 text-cyan-400" />
+          </button>
+          
+          {/* Integrated Level & Info Badge */}
+          <div className="text-center sm:text-left flex-1 px-2 min-w-0">
+            <p className="text-[10px] sm:text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider truncate">
+              Manakah FOTO ASLI?
             </p>
-            <p className="text-[9px] text-slate-500 font-mono mt-0.5">
-              (Gambar yang lain adalah hasil rekayasa KA)
+            <p className="text-[8px] sm:text-[9px] text-slate-400 font-mono mt-0.5 truncate">
+              Kasus {currentCaseIndex + 1}/{totalCases}: {activeCase.title}
             </p>
           </div>
+
+          {/* Submit Button */}
           <button
             type="button"
             disabled={selectedRealChoice === null || showFeedback}
             onClick={onSubmit}
-            className={`w-full sm:w-auto px-6 py-2.5 font-mono text-xs font-bold uppercase rounded-xl border transition-all duration-300 cursor-pointer ${
+            className={`px-4 sm:px-6 py-2 sm:py-2.5 font-mono text-[10px] sm:text-xs font-bold uppercase rounded-xl border transition-all duration-300 cursor-pointer shrink-0 ${
               selectedRealChoice === null || showFeedback
                 ? 'border-slate-800 text-slate-600 bg-slate-950/50 cursor-not-allowed'
                 : 'border-cyan-400 text-cyan-400 bg-cyan-950/10 hover:bg-cyan-400 hover:text-slate-950 glow-cyan hover:scale-[1.02]'
@@ -212,7 +210,7 @@ export function ArenaPage({
                   Jawaban: <span className="text-cyan-400 font-bold">Gambar {activeCase.realImage}</span> adalah Asli,{' '}
                   <span className="text-indigo-400 font-bold">Gambar {activeCase.aiImage}</span> adalah KA.
                 </p>
-                <p className="text-xs text-slate-350 leading-relaxed font-sans text-justify">
+                <p className="text-xs text-slate-300 leading-relaxed font-sans text-justify">
                   {activeCase.explanation}
                 </p>
               </div>
