@@ -6,7 +6,7 @@ export interface Case {
   imageA: string;
   imageB: string;
   realImage: 'A' | 'B'; // Which image is the actual human photo
-  aiImage: 'A' | 'B';   // Which image is AI generated
+  aiImage: 'A' | 'B';   // Which image is AI generated (the correct answer to select)
   locationOfArtifacts: string; // The area where AI artifacts are found (e.g. "Kerutan & Telinga", "Jari Tangan")
   clues: string[]; // Detective clues for looking under the magnifying glass
   explanation: string; // Detailed educational breakdown of the AI errors
@@ -14,7 +14,7 @@ export interface Case {
 
 export interface UserAnswer {
   caseId: number;
-  selectedReal: 'A' | 'B';
+  selectedAi: 'A' | 'B';
   isCorrect: boolean;
 }
 
@@ -23,6 +23,6 @@ export interface GameState {
   currentCaseIndex: number;
   answers: UserAnswer[];
   score: number;
-  selectedRealChoice: 'A' | 'B' | null;
+  selectedAiChoice: 'A' | 'B' | null;
   showFeedback: boolean;
 }

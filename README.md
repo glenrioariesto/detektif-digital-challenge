@@ -54,26 +54,39 @@ detektif-digital-challenge/
 ## ⚙️ Cara Menjalankan Project
 
 ### Prerequisites
-Pastikan Anda memiliki **Node.js** terinstal di komputer Anda.
+- **Node.js** 18+ (disarankan LTS)
+- npm (sudah termasuk saat instal Node.js)
 
-### 1. Masuk ke Direktori Project
+### 1. Masuk ke direktori project
 ```bash
 cd detektif-digital-challenge
 ```
 
-### 2. Instal Dependensi
+### 2. Instal dependensi
 ```bash
 npm install
 ```
 
-### 3. Jalankan Server Dev Lokal
+### 3. Jalankan mode development
 ```bash
 npm run dev
 ```
-Setelah dijalankan, buka alamat server yang tertera di terminal (biasanya `http://localhost:3000`) pada peramban web Anda.
+Buka di browser: **http://localhost:3000/detektif-digital-challenge/**
 
-### 4. Build untuk Produksi
+> Base path project: `/detektif-digital-challenge/` (lihat `vite.config.ts`).
+
+### 4. Build untuk produksi
 ```bash
 npm run build
 ```
-Hasil build akan tersimpan di dalam folder `dist/` untuk dihosting ke server web pilihan Anda.
+Hasil build ada di folder `dist/`.
+
+### 5. Jalankan hasil build secara lokal
+```bash
+npm run preview
+```
+Lalu buka URL yang muncul di terminal, biasanya:
+**http://localhost:4173/detektif-digital-challenge/**
+
+### ⚠️ Jangan buka `dist/index.html` dengan drag-and-drop ke browser
+Membuka file lewat protokol `file://` akan gagal (CORS / asset tidak termuat). Selalu sajikan `dist/` lewat HTTP, misalnya `npm run preview`, atau deploy ke hosting web.

@@ -1,10 +1,10 @@
 import { Case } from '../types';
 
-import level1Ai from '../../assets/level-1-ai.jpeg';
+import level1Ai from '../../assets/level-1-ai.webp';
 import level1Real from '../../assets/level-1-real.jpeg';
 import level2Ai from '../../assets/level-2-ai.jpeg';
 import level2Real from '../../assets/level-2-real.jpeg';
-import level3Ai from '../../assets/level-3-ai.jpeg';
+import level3Ai from '../../assets/level-3-ai.webp';
 import level3Real from '../../assets/level-3-real.jpeg';
 import level4Ai from '../../assets/level-4-ai.jpeg';
 import level4Real from '../../assets/level-4-real.jpeg';
@@ -14,7 +14,7 @@ import level6Ai from '../../assets/level-6-ai.jpeg';
 import level6Real from '../../assets/level-6-real.jpeg';
 import level7Ai from '../../assets/level-7-ai.jpeg';
 import level7Real from '../../assets/level-7-real.jpeg';
-import level8Ai from '../../assets/level-8-ai.jpeg';
+import level8Ai from '../../assets/level-8-ai.webp';
 import level8Real from '../../assets/level-8-real.jpeg';
 import level9Ai from '../../assets/level-9-ai.jpeg';
 import level9Real from '../../assets/level-9-real.jpeg';
@@ -24,172 +24,172 @@ import level10Real from '../../assets/level-10-real.jpeg';
 export const CASES_DATA: Case[] = [
   {
     id: 1,
-    title: "Kucing Manis di Atas Karpet",
-    category: "Tekstur Bulu & Pola Karpet rajut",
-    description: "Mendeteksi bulu hewan dan pola berulang adalah tantangan bagi AI. Salah satu gambar di bawah menampilkan kucing asli, dan yang lainnya adalah hasil generator AI yang mencoba meniru pola wol rajut.",
+    title: "Kucing Oren",
+    category: "Anatomi Hewan & Objek Dipegang",
+    description: "Generator AI sering membuat hewan melakukan pose manusia yang tidak masuk akal. Cari gambar kucing yang memegang kamera atau minuman dengan cara yang tidak alami bagi anatomi kaki kucing.",
     imageA: level1Ai,
     imageB: level1Real,
     realImage: "B",
     aiImage: "A",
-    locationOfArtifacts: "Kumis Kucing & Serat Rajutan",
+    locationOfArtifacts: "Kaki Depan, Cangkir & Pose Selfie",
     clues: [
-      "Perhatikan kumis kucing di Gambar A. Apakah kumis tersebut tumbuh dari titik folikel yang tepat pada moncongnya?",
-      "Periksa pola rajutan di latar belakang Gambar A. Apakah polanya konsisten atau ada area yang mendadak buram/berubah bentuk?",
-      "Lihat pantulan mata kucing. Apakah pupil mata kiri dan kanan memiliki bentuk yang sejalan dengan pencahayaan ruangan?"
+      "Periksa kaki depan di Gambar A. Apakah kucing benar-benar bisa memegang cangkir dan kamera seperti tangan manusia?",
+      "Lihat es dan sedotan di minuman hijau Gambar A. Apakah bentuknya konsisten atau ada bagian yang meleleh/aneh?",
+      "Bandingkan dengan Gambar B. Apakah pose berdiri di ubin masih masuk akal untuk seekor kucing sungguhan?"
     ],
-    explanation: "Gambar B adalah FOTO ASLI. Bulu-bulu halus di telinga dan kumis kucing tumbuh secara acak namun logis dari folikel kulitnya, serta tekstur lingkungan sekitarnya sangat alami. Gambar A adalah HASIL KA. Generator AI sering kali membuat kumis kucing yang melayang atau tumbuh dari tempat yang salah (seperti dari pipi atas), dan detail serat rajutan di sekitarnya cenderung kehilangan strukturnya di beberapa bagian, berubah menjadi pola acak yang tidak masuk akal."
+    explanation: "Gambar A adalah HASIL KA. Kucing oren berpose selfie sambil memegang matcha iced drink — anatomi kaki depan dipaksa meniru tangan manusia, sesuatu yang tidak terjadi pada foto nyata. Gambar B adalah FOTO ASLI. Kucing berdiri di ubin dengan kaki, ekor, dan proporsi tubuh yang natural."
   },
   {
     id: 2,
-    title: "Jari Tangan Memegang Cangkir",
-    category: "Anatomi Tangan & Integrasi Objek",
-    description: "Kecerdasan Artifisial terkenal sangat kesulitan menggambar tangan manusia secara akurat. Bandingkan kedua gambar yang memperlihatkan tangan memegang cangkir/makanan ini.",
+    title: "Roti Artisan vs Secangkir Kopi",
+    category: "Tekstur Makanan & Still Life",
+    description: "Foto makanan AI sering terlihat seperti iklan: remah, tepung, dan biji-bijian ditata terlalu artistik. Cari still life yang terasa 'didirikan', bukan jepretan sederhana di atas meja.",
     imageA: level2Real,
     imageB: level2Ai,
     realImage: "A",
     aiImage: "B",
-    locationOfArtifacts: "Sendi Jari, Kuku & Gagang Cangkir",
+    locationOfArtifacts: "Biji Gandum, Tepung & Kulit Roti",
     clues: [
-      "Hitung jumlah jari yang terlihat di kedua gambar. Apakah semuanya berjumlah normal?",
-      "Perhatikan kerutan kulit di setiap sendi jari. Apakah kerutan tersebut terlihat alami atau terlalu licin?",
-      "Lihat area pertemuan antara jari dengan benda yang dipegang. Apakah ada bagian yang tampak 'meleleh' atau menembus objek?"
+      "Periksa biji dan batang gandum di Gambar B. Apakah bentuknya berulang atau terlalu identik satu sama lain?",
+      "Lihat tepung yang bertebaran di meja kayu Gambar B. Apakah polanya tampak ditabur secara acak alami atau seperti filter dekoratif?",
+      "Bandingkan dengan busa kopi di Gambar A. Apakah gelembung crema-nya tidak merata, seperti minuman sungguhan?"
     ],
-    explanation: "Gambar A adalah FOTO ASLI. Kerutan pada sendi jari, kuku, dan cengkeraman pada cangkir memiliki anatomi yang sepenuhnya benar secara fisik dengan lipatan kulit yang logis. Gambar B adalah HASIL KA. Jika diperhatikan dengan saksama, tekstur kulit jari terlalu halus seperti lilin, batas antara kuku dan daging jari tampak kabur, serta cara jari melingkari objek memiliki sudut melengkung yang tidak ergonomis bagi anatomi manusia."
+    explanation: "Gambar B adalah HASIL KA. Tiga roti, batang gandum, dan taburan tepung ditata terlalu sempurna untuk foto dapur biasa; biji bunga matahari dan retakan kulit roti cenderung berpola. Gambar A adalah FOTO ASLI. Cangkir kopi dari atas menampilkan crema yang tidak merata, tepi cangkir sederhana, dan kayu meja yang buram secara optik kamera."
   },
   {
     id: 3,
-    title: "Potret Wajah di Kedai Kopi",
-    category: "Anatomi Wajah & Tekstur Kulit",
-    description: "Periksa dua potret wanita ini. Salah satunya adalah foto jepretan kamera DSLR asli, sementara yang lain adalah hasil render AI (KA) dengan pencahayaan studio ultra-sempurna. Perhatikan detail tekstur kulit dan mata.",
+    title: "Potret Kartini",
+    category: "Potret Sejarah & Kebaya Tradisional",
+    description: "AI sering 'menghidupkan ulang' tokoh sejarah dengan kulit terlalu mulus, kebaya terlalu mewah, dan latar yang terlalu dekoratif. Cari potret yang terasa seperti rekonstruksi digital, bukan arsip foto kuno.",
     imageA: level3Ai,
     imageB: level3Real,
     realImage: "B",
     aiImage: "A",
-    locationOfArtifacts: "Mata, Anting-Anting & Rambut Halus",
+    locationOfArtifacts: "Bordir Kebaya, Konde Rambut & Latar Dinding",
     clues: [
-      "Periksa anting-anting di Gambar A: apakah pola kiri dan kanan simetris dan terpasang dengan logis?",
-      "Lihat pantulan cahaya (catchlight) di kornea mata Gambar A. Apakah bentuknya bulat sempurna atau agak distorsi?",
-      "Perhatikan helai rambut halus (stray hairs) di Gambar B yang jatuh secara acak di dahi dan pelipis."
+      "Perbesar kulit di Gambar A. Apakah tekstur wajah terlalu halus dan bersih, tanpa grain atau ketidaksempurnaan foto vintage?",
+      "Periksa bordir emas di kebaya dan bunga melati di konde rambut Gambar A. Apakah motifnya terlalu simetris atau tampak 'melukis', bukan tekstil sungguhan?",
+      "Lihat Gambar B. Apakah foto hitam-putih sepia ini punya grain kamera kuno, kebaya putih sederhana, dan latar polos yang konsisten dengan arsip sejarah?"
     ],
-    explanation: "Gambar B adalah FOTO ASLI. Kulit subjek memiliki ketidaksempurnaan alami seperti pori-pori yang tidak merata, kemerahan, dan helai rambut halus yang jatuh secara tidak beraturan. Gambar A adalah HASIL KA. Meskipun terlihat sangat menakjubkan, kulitnya terlalu mulus secara tidak merata (efek plastik), pantulan cahaya di matanya memiliki bentuk tidak beraturan yang tidak sesuai dengan sumber cahaya, dan anting-antingnya tampak 'menyatu' dengan cuping telinga tanpa pengait yang jelas."
+    explanation: "Gambar A adalah HASIL KA. Potret wanita berkebaya ungu dengan bordir emas dan wallpaper bunga terlihat seperti rekonstruksi digital: kulit mulus, latar terlalu dekoratif, dan detail tradisional terlalu 'sempurna'. Gambar B adalah FOTO ASLI. Foto sejarah Kartini hitam-putih menampilkan kebaya putih, konde rambut, kalung, dan grain fotografi kuno yang otentik."
   },
   {
     id: 4,
-    title: "Pemandangan Kota Malam Hari",
-    category: "Teks Reklame & Refleksi Cahaya",
-    description: "Lampu neon kota dan papan nama adalah musuh bebuyutan AI generasi lama dan menengah. AI sering gagal mengeja teks pada papan nama jalan atau menghasilkan teks cermin yang tidak logis pada aspal basah.",
+    title: "Kota Senja di Chicago",
+    category: "Arsitektur, Kendaraan & Teks",
+    description: "AI sering gagal pada teks papan, bentuk kendaraan, dan pantulan basah di aspal. Cari pemandangan kota yang detailnya mulai 'aneh' saat diperbesar, bukan skyline yang geometrinya konsisten.",
     imageA: level4Real,
     imageB: level4Ai,
     realImage: "A",
     aiImage: "B",
-    locationOfArtifacts: "Huruf pada Papan Nama & Bayangan Air",
+    locationOfArtifacts: "Marquee Bus, Aspal Basah & Jendela Gedung",
     clues: [
-      "Periksa tulisan atau logo yang terlihat pada gedung-gedung. Apakah ejaannya terbaca sebagai kata nyata atau hanya susunan huruf acak?",
-      "Lihat pantulan gedung di permukaan air atau aspal basah. Apakah pantulan tersebut membentuk bayangan vertikal yang logis?",
-      "Bandingkan detail lampu-lampu kecil di jendela gedung. Apakah ada pola jendela yang mendadak menciut atau tidak sejajar?"
+      "Perbesar tulisan di bus atau papan nama Gambar B. Apakah hurufnya terbaca lurus atau mulai berubah jadi karakter aneh?",
+      "Lihat pantulan lampu di aspal basah Gambar B. Apakah garis pantulannya logis mengikuti lajur jalan, atau pecah tidak beraturan?",
+      "Bandingkan jendela dan spire gedung di Gambar A. Apakah tepi bangunan tetap lurus meski diambil dari ketinggian?"
     ],
-    explanation: "Gambar A adalah FOTO ASLI. Semua logo dan tulisan di gedung-gedung perkotaan dapat dibaca dengan jelas, dan struktur arsitekturnya memiliki perspektif geometris yang sempurna. Gambar B adalah HASIL KA. Meskipun estetikanya sangat menawan dengan gaya neon-synthwave, papan nama di latar belakang menampilkan teks 'gibberish' (tulisan tanpa arti yang menyerupai huruf), dan jendela pada gedung-gedung tinggi di bagian kanan memiliki ukuran yang tidak konsisten secara struktural."
+    explanation: "Gambar B adalah HASIL KA. Koridor jalan malam itu estetik, tetapi teks marquee, tepi kendaraan, dan pantulan basah sering pecah atau tidak konsisten secara struktural. Gambar A adalah FOTO ASLI. Skyline udara menampilkan massa bangunan, danau, dan cahaya matahari sore yang arahnya seragam di seluruh fasad."
   },
   {
     id: 5,
-    title: "Momen Kebersamaan di Taman",
-    category: "Interaksi Sosial & Konsistensi Cahaya",
-    description: "Memotret beberapa orang sekaligus dalam satu frame adalah hal sulit bagi AI karena harus menjaga konsistensi arah cahaya, bayangan, dan anatomi setiap individu di dalam kelompok.",
+    title: "Kelompok di Tepi Air",
+    category: "Anatomi Kelompok & Siluet",
+    description: "AI kesulitan menggambar banyak orang sekaligus: jari menyatu, lengan memanjang, dan tubuh yang meleleh satu sama lain. Cari kelompok yang anatomi sentuhannya tidak masuk akal.",
     imageA: level5Ai,
     imageB: level5Real,
     realImage: "B",
     aiImage: "A",
-    locationOfArtifacts: "Detail Wajah Belakang, Jari & Bayangan",
+    locationOfArtifacts: "Jari, Lengan Anak & Siluet Menyatu",
     clues: [
-      "Lihat wajah orang-orang yang berada di latar belakang atau posisi sekunder di Gambar A. Apakah wajah mereka terdistorsi?",
-      "Perhatikan bayangan di bawah meja atau di sekitar kaki di Gambar B. Apakah sesuai dengan arah datangnya cahaya matahari?",
-      "Periksa bagian pakaian atau aksesoris (seperti kacamata atau tali tas). Apakah ada yang terputus di tengah jalan?"
+      "Hitung jari dan bentuk tangan orang di ujung kiri Gambar A. Apakah jumlah dan sendinya normal?",
+      "Periksa anak kecil yang digendong di Gambar A. Apakah lengan atau kakinya tampak terlalu kurus dan memanjang?",
+      "Bandingkan cara lengan bertumpu di bahu teman-teman pada Gambar B. Apakah setiap tangan masih terpisah jelas dari baju orang di sebelahnya?"
     ],
-    explanation: "Gambar B adalah FOTO ASLI. Ekspresi wajah tertawa yang natural, arah bayangan di tanah yang konsisten dengan posisi matahari sore, dan detail pakaian semuanya selaras. Gambar A adalah HASIL KA. Saat diperbesar, wajah orang-orang di latar belakang mengalami distorsi aneh (smudged), detail jari tangan beberapa orang tampak menyatu secara tidak wajar dengan pakaian, dan ada keganjilan pada cara tali pakaian/aksesoris tersampir tanpa ujung."
+    explanation: "Gambar A adalah HASIL KA. Siluet pantai senja itu dramatis, tetapi tangan, lengan anak, dan tepi tubuh sering menyatu atau terdistorsi. Cahaya tepi (rim light) juga terlalu seragam di setiap orang. Gambar B adalah FOTO ASLI. Delapan orang duduk di tembok dengan pakaian, tas, dan kabel gondola yang tetap terbaca sebagai objek nyata."
   },
   {
     id: 6,
-    title: "Membaca Buku di Perpustakaan",
-    category: "Detail Teks & Halaman Buku",
-    description: "Periksa halaman buku yang sedang dibaca. Foto asli akan menangkap baris-baris kalimat yang tercetak rapi pada kertas, sedangkan AI sering menghasilkan barisan coretan meliuk-liuk yang tidak bermakna.",
+    title: "Buku di Meja Baca",
+    category: "Teks Cetak & Punggung Buku",
+    description: "Foto asli menangkap huruf tercetak yang bisa dieja. AI sering membuat punggung buku atau halaman yang menyerupai teks, tetapi karakternya tidak konsisten. Cari tumpukan yang tulisannya goyah.",
     imageA: level6Real,
     imageB: level6Ai,
     realImage: "A",
     aiImage: "B",
-    locationOfArtifacts: "Baris Kalimat & Tekstur Kertas Kuno",
+    locationOfArtifacts: "Huruf di Punggung Buku & Tepi Jilid",
     clues: [
-      "Perhatikan halaman terbuka di Gambar A. Apakah baris teksnya lurus sejajar dan membentuk karakter huruf yang nyata?",
-      "Lihat buku-buku di Gambar B. Apakah ketebalan halaman and jilidnya terlihat realistis atau seperti balok padat berpola?",
-      "Periksa bayangan jemari di atas halaman buku. Apakah bayangan tersebut mengikuti lekukan kertas?"
+      "Perbesar punggung buku di Gambar B. Apakah judul dan nama penulis tetap terbaca huruf demi huruf, atau ada karakter yang meleleh?",
+      "Lihat ketebalan dan tepi kertas tumpukan Gambar B. Apakah halaman tampak seperti blok padat, bukan lembaran tipis?",
+      "Bandingkan halaman terbuka di Gambar A. Apakah judul bab dan isi paragrafnya merupakan kalimat sungguhan?"
     ],
-    explanation: "Gambar A adalah FOTO ASLI. Halaman buku menunjukkan teks tercetak dengan layout baris yang lurus dan bayangan jari pembaca jatuh secara realistis di atas kertas melengkung. Gambar B adalah HASIL KA. Buku-buku tersebut tampak terlalu sempurna layaknya objek 3D dalam game, tepi-tepi kertasnya terlalu mulus, dan jika Anda mencoba mengeja tulisan di punggung buku, Anda akan menemukan keanehan bentuk karakter yang tidak terbaca."
+    explanation: "Gambar B adalah HASIL KA. Tumpukan buku bisnis tampak rapi seperti pajangan toko, tetapi huruf di punggung, logo, dan tepi jilid sering kehilangan ketajaman huruf sungguhan. Gambar A adalah FOTO ASLI. Halaman kiri-kanan menampilkan teks cetak yang bisa dibaca, bayangan kisi jendela, dan jahitan jeans yang natural."
   },
   {
     id: 7,
-    title: "Pantulan di Kacamata Hitam",
-    category: "Hukum Fisika Refleksi Cahaya",
-    description: "Kacamata hitam reflektif bertindak sebagai cermin ganda. Foto asli harus mematuhi hukum fisika di mana kedua lensa memantulkan lingkungan yang sama dari sudut pandang yang sedikit berbeda. AI sering gagal menyinkronkan kedua pantulan ini.",
+    title: "Objek di Atas Meja",
+    category: "Fisika Objek & Detail Merek",
+    description: "Satu gambar adalah foto produk dengan logo yang jelas, yang lain adalah tumpukan buku bertema pohon natal. Cari komposisi yang lampu, pita, dan judul bukunya tidak taat fisika.",
     imageA: level7Ai,
     imageB: level7Real,
     realImage: "B",
     aiImage: "A",
-    locationOfArtifacts: "Lensa Kiri vs Lensa Kanan & Bingkai",
+    locationOfArtifacts: "Lampu Peri, Pita Goni & Huruf Spine",
     clues: [
-      "Bandingkan gambar refleksi di lensa kiri dan lensa kanan Gambar A. Apakah mereka memantulkan objek/langit yang sama?",
-      "Perhatikan detail bingkai kacamata di Gambar B. Apakah ada lekukan yang tidak simetris atau bahan bingkai yang tampak meleleh?",
-      "Lihat bayangan kacamata di wajah. Apakah bayangan tersebut logis berdasarkan arah datangnya sinar matahari?"
+      "Ikuti kabel lampu peri di Gambar A. Apakah ia melilit tumpukan secara logis, atau menembus/menghilang di sela buku?",
+      "Perbesar judul di punggung buku Gambar A. Apakah ejaan dan spasi hurufnya konsisten, atau ada kata yang berubah jadi guratan?",
+      "Lihat logo di lensa kacamata Gambar B. Apakah mereknya tercetak tajam, dan engsel bingkai masih berupa benda mekanis yang masuk akal?"
     ],
-    explanation: "Gambar B adalah FOTO ASLI. Refleksi lingkungan pada kacamata sangat konsisten dan detail material plastik/kacanya realistis lengkap dengan debu mikro. Gambar A adalah HASIL KA. Refleksi pada lensa kiri dan kanan tidak sinkron secara spasial (misal, lensa kiri memantulkan awan tebal sedangkan lensa kanan memantulkan pola yang berbeda drastis), serta terdapat ketidaksempurnaan sambungan engsel bingkai kacamata yang tidak masuk akal secara mekanis."
+    explanation: "Gambar A adalah HASIL KA. Tumpukan buku berbentuk pohon natal terlalu 'ditata magis': pita goni, lampu peri, dan lantern kawat sering tidak menyambung secara fisik, sementara teks spine goyah. Gambar B adalah FOTO ASLI. Kacamata hitam produk menampilkan logo lensa, highlight plastik, dan bayangan studio yang konsisten."
   },
   {
     id: 8,
-    title: "Hidangan Lezat di Atas Meja",
-    category: "Tekstur Makanan & Konsistensi Bahan",
-    description: "Makanan asli memiliki ketidaksempurnaan organik: kelembapan yang tidak merata, serat daging, biji wijen yang letaknya acak, atau bagian gosong yang tipis. AI cenderung membuat makanan terlihat terlalu mengkilap seperti dilapisi lilin.",
+    title: "Semangkuk Bakso Aci",
+    category: "Tekstur Makanan & Properti Dapur",
+    description: "Foto makanan AI sering menata bakso, kerupuk, dan alat dapur terlalu artistik. Cari semangkuk yang kerupuk, kuah, atau properti di sekitarnya tampak tidak konsisten secara fisik.",
     imageA: level8Real,
     imageB: level8Ai,
     realImage: "A",
     aiImage: "B",
-    locationOfArtifacts: "Kilauan Minyak, Serat Sayur & Tepian Piring",
+    locationOfArtifacts: "Lubang Kerupuk, Kuah Merah & Properti Meja",
     clues: [
-      "Perhatikan permukaan makanan di Gambar B. Apakah kilau cahayanya tampak alami atau seperti dilapisi plastik/lilin cair?",
-      "Lihat susunan biji-bijian atau irisan sayur di Gambar A. Apakah mereka tampak ditumpuk satu per satu dengan gravitasi yang realistis?",
-      "Periksa tepi piring. Apakah bentuk lingkaran piring presisi atau sedikit peyang/meleot di beberapa sudut?"
+      "Perbesar kerupuk tegak di Gambar B. Apakah lubang-lubangnya berbentuk aneh atau tidak natural, seolah 'direka' AI?",
+      "Lihat bakso, pilus kuning, dan kuah merah di Gambar B. Apakah permukaannya terlalu mengkilap seragam, seperti dilapisi plastik?",
+      "Bandingkan mangkuk, cangkir hitam, botol minyak, dan sendok di Gambar A. Apakah bayangan dan jarak antar benda masih logis untuk foto dapur sungguhan?"
     ],
-    explanation: "Gambar A adalah FOTO ASLI. Tekstur setiap bahan makanan (serat sayuran, kelembapan, biji wijen) memiliki variasi acak yang sangat alami di bawah cahaya ruangan biasa. Gambar B adalah HASIL KA. Makanan tersebut terlihat terlalu 'glamour' dan mengkilap dengan pencahayaan magis yang tidak realistis (seperti makanan iklan komputer), dan jika diperhatikan detail bagian bawah roti/piring, garis batasnya terlihat buram dan menyatu dengan meja kayu."
+    explanation: "Gambar B adalah HASIL KA. Semangkuk bakso aci dengan kerupuk, pilus, pangsit goreng, dan jeruk nipis tampak seperti iklan makanan, tetapi lubang kerupuk, kilau kuah, dan penataan properti di sekitarnya sering tidak konsisten secara fisik. Gambar A adalah FOTO ASLI. Foto bakso aci yang sama menampilkan tekstur bakso, kuah pedas, cangkir keramik, dan bayangan alami yang masuk akal."
   },
   {
     id: 9,
-    title: "Lanskap Pegunungan & Danau",
-    category: "Refleksi Air & Detail Geometris Alam",
-    description: "Di alam bebas, air bertindak sebagai reflektor yang mendistorsi cahaya sesuai riak gelombang. AI sering kali membuat refleksi air yang terlalu sempurna atau justru polanya terputus secara tidak logis.",
+    title: "Lembah Pegunungan",
+    category: "Refleksi Air & Detail Pohon",
+    description: "Pemandangan AI sering membuat langit, kabut, dan pantulan air terlalu pelukis. Cari lembah yang riak air atau tepi pohonnya terasa seperti sapuan kuas, bukan optik kamera.",
     imageA: level9Ai,
     imageB: level9Real,
     realImage: "B",
     aiImage: "A",
-    locationOfArtifacts: "Riak Gelombang & Puncak Gunung Refleksi",
+    locationOfArtifacts: "Pantulan Sungai, Kabut & Tepi Pohon",
     clues: [
-      "Bandingkan bentuk puncak gunung asli di atas dengan bentuk gunung hasil refleksi di air pada Gambar A. Apakah 100% sama?",
-      "Lihat transisi antara daratan tepi danau dan permukaan air di Gambar B. Apakah ada bebatuan kecil dengan bayangan air yang logis?",
-      "Perhatikan riak-riak air di Gambar A. Apakah polanya terlihat alami atau seperti filter noise komputer yang berulang?"
+      "Bandingkan pantulan tebing di sungai Gambar A dengan bentuk gunung di atasnya. Apakah pantulannya terlalu rapi atau justru putus aneh?",
+      "Perbesar deretan pohon gelap di tengah Gambar A. Apakah puncak pohonnya berulang seperti stempel, bukan tajuk yang acak?",
+      "Lihat pepohonan dan salju di Gambar B. Apakah setiap puncak dan lereng masih punya keragaman batuan yang tidak simetris?"
     ],
-    explanation: "Gambar B adalah FOTO ASLI. Danau menampilkan distorsi riak air alami akibat tiupan angin yang memecah refleksi gunung secara realistis sesuai hukum optik. Gambar A adalah HASIL KA. Refleksi gunung di air tampak terlalu mirip dengan gambar aslinya (hanya di-flip secara vertikal dengan sedikit blur komputer), dan riak air di bagian depan memiliki pola fraktal yang terlalu matematis dan berulang."
+    explanation: "Gambar A adalah HASIL KA. Lembah senja itu memukau, tetapi kabut oranye, pantulan sungai, dan garis pohon terlalu halus seperti lukisan. Gambar B adalah FOTO ASLI. Lembah siang menampilkan pohon cemara, dasar lembah berbatu, dan puncak bersalju dengan awan yang tidak 'dilukis' merata."
   },
   {
     id: 10,
-    title: "Potret Kakek Bersahaja",
-    category: "Tekstur Kulit Lansia & Kerutan Wajah",
-    description: "Kerutan wajah orang tua adalah salah satu detail paling kompleks. Kamera asli menangkap kerutan mikro, pori-pori kering, dan rambut halus. AI sering kali membuat kerutan yang terlalu rapi atau kulit yang tampak licin di sela-sela kerutan.",
+    title: "Potret Pria di Luar Ruangan",
+    category: "Kulit, Gigi & Bokeh Cahaya",
+    description: "Potret AI suka memakai golden hour, senyum lebar, dan bokeh bundar yang terlalu teratur. Cari wajah yang gigi, pori, atau latarnya terasa seperti poster, bukan foto studio biasa.",
     imageA: level10Real,
     imageB: level10Ai,
     realImage: "A",
     aiImage: "B",
-    locationOfArtifacts: "Kerutan Mata, Pori-pori Kulit & Kumis",
+    locationOfArtifacts: "Gigi, Halo Rambut & Bokeh Latar",
     clues: [
-      "Perhatikan kedalaman kerutan di sekitar mata Gambar A. Apakah ada detail pori-pori kulit kering yang tampak sangat nyata?",
-      "Periksa kumis dan jenggot di Gambar B. Apakah setiap helai rambut tumbuh secara logis dari kulit atau terlihat seperti digambar dengan kuas digital?",
-      "Lihat kilau mata dan area putih mata (sklera) di Gambar B. Apakah terlalu putih bersih tanpa pembuluh darah kecil?"
+      "Periksa gigi dan tepi bibir di Gambar B. Apakah gigi terlalu putih seragam, dan gusi menyatu aneh dengan bibir?",
+      "Lihat cahaya di rambut Gambar B. Apakah ada halo keemasan yang terlalu rapi mengelilingi kepala?",
+      "Bandingkan kacamata, jenggot, dan kemeja di Gambar A. Apakah pantulan lensa dan helai jenggot masih punya detail acak yang natural?"
     ],
-    explanation: "Gambar A adalah FOTO ASLI. Tekstur kulit kakek tersebut menunjukkan tanda-tanda penuaan alami yang sangat detail seperti bercak matahari, kerutan mikro yang tidak beraturan, pembuluh darah tipis di mata, dan jenggot yang tumbuh alami. Gambar B adalah HASIL KA. Kulit wajah pria tersebut terlihat terlalu halus layaknya lilin kosmetik, jenggot dan rambutnya memiliki transisi kabur di bagian tepi kulit, dan sklera matanya terlalu putih bersih tanpa pembuluh darah alami, memberikan kesan tatapan kosong (uncanny valley)."
+    explanation: "Gambar B adalah HASIL KA. Pemuda tersenyum di padang rumput golden hour tampak seperti stok foto: kulit terlalu halus, gigi terlalu rapi, dan bokeh cahaya berbentuk orbs yang berulang. Gambar A adalah FOTO ASLI. Headshot pria berkacamata di latar putih menampilkan jenggot, kemeja, dan pantulan lensa yang tidak 'dilukis ulang'."
   }
 ];

@@ -3,6 +3,7 @@ import logoPusbuk from '../../../assets/logo-pusbuk.webp';
 import bgJudul from '../../../assets/background judul.webp';
 import judulImg from '../../../assets/judul.webp';
 import tombolMulai from '../../../assets/tombol mulai.webp';
+import { InteractiveGridBg } from '../../components/InteractiveGridBg';
 
 interface SplashPageProps {
   onStart: () => void;
@@ -10,7 +11,7 @@ interface SplashPageProps {
 
 export function SplashPage({ onStart }: SplashPageProps) {
   return (
-    <div id="splash-page" className="min-h-screen w-screen relative flex flex-col items-center justify-center overflow-hidden select-none animate-fadeIn">
+    <div id="splash-page" className="min-h-screen w-screen relative flex flex-col items-center justify-center overflow-hidden select-none animate-fadeIn cursor-none">
       <img
         id="splash-background"
         src={bgJudul}
@@ -18,7 +19,9 @@ export function SplashPage({ onStart }: SplashPageProps) {
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
       />
 
-      <div id="splash-logo" className="absolute top-3 left-3 sm:top-5 sm:left-5 z-50 shrink-0">
+      <InteractiveGridBg />
+
+      <div id="splash-logo" className="absolute top-3 left-3 sm:top-5 sm:left-5 z-40 shrink-0">
         <img
           src={logoPusbuk}
           alt="Logo Pusbuk"
@@ -26,7 +29,7 @@ export function SplashPage({ onStart }: SplashPageProps) {
         />
       </div>
 
-      <div id="splash-content" className="relative z-10 w-full flex flex-col items-center px-4 pb-[16vh] md:pb-[18vh]  pt-[20vh] md:pt-[24vh]">
+      <div id="splash-content" className="relative z-40 w-full flex flex-col items-center px-4 pb-[16vh] md:pb-[18vh]  pt-[20vh] md:pt-[24vh]">
         <img
           id="splash-title"
           src={judulImg}

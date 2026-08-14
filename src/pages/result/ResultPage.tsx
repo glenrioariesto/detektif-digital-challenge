@@ -95,7 +95,7 @@ export function ResultPage({ score, answers, onRestart }: ResultPageProps) {
                       <th className="pb-2 font-bold uppercase tracking-wider">Topik/Kategori</th>
                       <th className="pb-2 font-bold uppercase tracking-wider text-center w-24">Pilihan Anda</th>
                       <th className="pb-2 font-bold uppercase tracking-wider text-center w-24">Hasil</th>
-                      <th className="pb-2 font-bold uppercase tracking-wider text-center w-20">Kunci</th>
+                      <th className="pb-2 font-bold uppercase tracking-wider text-center w-20">Gambar AI</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-[#FA6E00]/15">
@@ -111,7 +111,7 @@ export function ResultPage({ score, answers, onRestart }: ResultPageProps) {
                           </td>
                           <td className="py-2.5 text-center">
                             <span className="px-2 py-0.5 rounded text-[9px] font-bold border-2 border-[#FA6E00] bg-[#FA6E00]/10 text-[#FA6E00]">
-                              Gambar {ans?.selectedReal ?? '-'}
+                              Gambar {ans?.selectedAi ?? '-'}
                             </span>
                           </td>
                           <td className="py-2.5 text-center">
@@ -126,7 +126,7 @@ export function ResultPage({ score, answers, onRestart }: ResultPageProps) {
                             )}
                           </td>
                           <td className="py-2.5 text-center card-text font-bold">
-                            Gambar {c.realImage}
+                            Gambar {c.aiImage}
                           </td>
                         </tr>
                       );

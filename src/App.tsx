@@ -11,12 +11,12 @@ export default function App() {
     currentCaseIndex,
     activeCase,
     totalCases,
-    selectedRealChoice,
+    selectedAiChoice,
     showFeedback,
     answers,
     score,
     startInvestigation,
-    selectRealChoice,
+    selectAiChoice,
     submitGuess,
     advanceCase,
     restartGame,
@@ -103,9 +103,9 @@ export default function App() {
           currentCaseIndex={currentCaseIndex}
           activeCase={activeCase}
           totalCases={totalCases}
-          selectedRealChoice={selectedRealChoice}
+          selectedAiChoice={selectedAiChoice}
           showFeedback={showFeedback}
-          onSelectChoice={selectRealChoice}
+          onSelectChoice={selectAiChoice}
           onSubmit={submitGuess}
           onAdvance={advanceCase}
         />

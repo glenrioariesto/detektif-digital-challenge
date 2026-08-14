@@ -156,11 +156,12 @@ h1, h2, h3, .font-display {
   border: 2px solid #FA6E00;
   box-shadow: 0 10px 24px rgba(56, 69, 91, 0.45);
   font-weight: 800;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .btn-card:hover:not(:disabled) {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #FA6E00;
+  color: #FFFFFF;
 }
 
 .btn-card:disabled {

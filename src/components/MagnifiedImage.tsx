@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { ZoomIn } from 'lucide-react';
 
 interface MagnifiedImageProps {
   id?: string;
@@ -9,6 +8,21 @@ interface MagnifiedImageProps {
   isSelected: boolean;
   onSelect: () => void;
   disabled: boolean;
+}
+
+/** Hitung area gambar yang benar-benar tergambar saat object-fit: cover. */
+function getCoverLayout(
+  elW: number,
+  elH: number,
+  naturalW: number,
+  naturalH: number,
+) {
+  const scale = Math.max(elW / naturalW, elH / naturalH);
+  const drawnW = naturalW * scale;
+  const drawnH = naturalH * scale;
+  const offsetX = (elW - drawnW) / 2;
+  const offsetY = (elH - drawnH) / 2;
+  return { drawnW, drawnH, offsetX, offsetY };
 }
 
 export function MagnifiedImage({
@@ -36,7 +50,9 @@ export function MagnifiedImage({
 
     const buttonRect = containerRef.current.getBoundingClientRect();
     const imageRect = imgRef.current.getBoundingClientRect();
-    
+    const { naturalWidth, naturalHeight } = imgRef.current;
+    if (!naturalWidth || !naturalHeight) return;
+
     let clientX = 0;
     let clientY = 0;
 
@@ -68,11 +84,22 @@ export function MagnifiedImage({
     const zoom = 2.5;
     const lensRadius = 70;
 
-    const bgWidth = imageRect.width * zoom;
-    const bgHeight = imageRect.height * zoom;
+    // Sinkronkan dengan object-cover: lens memakai full asset yang di-scale sama,
+    // lalu digeser sesuai crop/offset yang sama dengan <img>.
+    const { drawnW, drawnH, offsetX, offsetY } = getCoverLayout(
+      imageRect.width,
+      imageRect.height,
+      naturalWidth,
+      naturalHeight,
+    );
 
-    const bgX = -(xImage * zoom - lensRadius);
-    const bgY = -(yImage * zoom - lensRadius);
+    const drawnX = xImage - offsetX;
+    const drawnY = yImage - offsetY;
+
+    const bgWidth = drawnW * zoom;
+    const bgHeight = drawnH * zoom;
+    const bgX = -(drawnX * zoom - lensRadius);
+    const bgY = -(drawnY * zoom - lensRadius);
 
     setLensState({
       show: true,
@@ -110,12 +137,12 @@ export function MagnifiedImage({
       onTouchStart={handleMouseEnter}
       onTouchEnd={handleMouseLeave}
       onClick={onSelect}
-      aria-label={`Pilih Gambar ${label} sebagai Asli`}
+      aria-label={`Pilih Gambar ${label} sebagai hasil AI`}
     >
       <div className={`absolute top-2 left-2 sm:top-4 sm:left-4 z-10 font-mono font-bold px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border-2 transition-all duration-300 flex items-center gap-1 sm:gap-1.5 ${
         isSelected
-          ? 'bg-[#FA6E00] border-[#FA6E00] text-white'
-          : 'border-[#FA6E00] text-[#FA6E00] bg-[#FA6E00] text-white'
+          ? 'border-[#FA6E00] bg-[#FA6E00] text-white'
+          : 'bg-white border-[#FA6E00] text-[#FA6E00]'
       }`}>
         <span className="text-[9px] sm:text-xs uppercase tracking-wider">Gambar</span>
         <span className="text-xs sm:text-sm font-black">{label}</span>

@@ -4,12 +4,13 @@ import { Case } from '../../types';
 import { MagnifiedImage } from '../../components/MagnifiedImage';
 import bgGameplay from '../../../assets/background gameplay.webp';
 import tagImg from '../../../assets/tag.webp';
+import logoPusbuk from '../../../assets/logo-pusbuk.webp';
 
 interface ArenaPageProps {
   currentCaseIndex: number;
   activeCase: Case;
   totalCases: number;
-  selectedRealChoice: 'A' | 'B' | null;
+  selectedAiChoice: 'A' | 'B' | null;
   showFeedback: boolean;
   onSelectChoice: (choice: 'A' | 'B') => void;
   onSubmit: () => void;
@@ -20,7 +21,7 @@ export function ArenaPage({
   currentCaseIndex,
   activeCase,
   totalCases,
-  selectedRealChoice,
+  selectedAiChoice,
   showFeedback,
   onSelectChoice,
   onSubmit,
@@ -29,7 +30,7 @@ export function ArenaPage({
   const [isClueOpen, setIsClueOpen] = useState(false);
   const [isHudVisible, setIsHudVisible] = useState(true);
   const progressPercentage = ((currentCaseIndex) / totalCases) * 100;
-  const isCorrect = selectedRealChoice === activeCase.realImage;
+  const isCorrect = selectedAiChoice === activeCase.aiImage;
 
   return (
     <div id="arena-page" className="h-screen w-screen text-[#38455B] flex items-center justify-center overflow-hidden relative select-none font-sans">
@@ -49,19 +50,27 @@ export function ArenaPage({
           ></div>
         </div>
 
+        <div id="arena-logo" className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-5 md:left-5 z-30 shrink-0">
+          <img
+            src={logoPusbuk}
+            alt="Logo Pusbuk"
+            className="h-8 sm:h-11 md:h-14 lg:h-16 xl:h-20 w-auto object-contain drop-shadow-[0_6px_12px_rgba(56,69,91,0.45)]"
+          />
+        </div>
+
         <div
           id="arena-case-tag"
           className={`absolute top-4 md:top-7 lg:top-8 left-1/2 -translate-x-1/2 z-30 ${
             isHudVisible ? 'block' : 'hidden'
           } lg:block`}
         >
-          <div className="relative shrink-0 w-[min(28vw,9rem)] sm:w-[min(24vw,11rem)] md:w-[min(28vw,13rem)]">
+          <div className="relative shrink-0 w-[min(28vw,9rem)] sm:w-[min(24vw,11rem)] md:w-[min(28vw,13rem)] xl:w-[min(34vw,18rem)] ">
             <img
               src={tagImg}
               alt=""
               className="w-full h-auto object-contain drop-shadow-[0_6px_14px_rgba(56,69,91,0.4)]"
             />
-            <span className="absolute inset-0 flex items-center justify-center font-display text-white text-[9px] sm:text-sm md:text-base tracking-wide uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
+            <span className="absolute inset-0 flex items-center justify-center font-display text-white text-[9px] mt-1 sm:text-sm md:text-base xl:text-3xl tracking-wide uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
               Kasus {currentCaseIndex + 1}
             </span>
           </div>
@@ -74,7 +83,7 @@ export function ArenaPage({
               src={activeCase.imageA}
               alt="Gambar Bukti A"
               label="A"
-              isSelected={selectedRealChoice === 'A'}
+              isSelected={selectedAiChoice === 'A'}
               onSelect={() => onSelectChoice('A')}
               disabled={showFeedback}
             />
@@ -84,7 +93,7 @@ export function ArenaPage({
               src={activeCase.imageB}
               alt="Gambar Bukti B"
               label="B"
-              isSelected={selectedRealChoice === 'B'}
+              isSelected={selectedAiChoice === 'B'}
               onSelect={() => onSelectChoice('B')}
               disabled={showFeedback}
             />
@@ -113,7 +122,7 @@ export function ArenaPage({
             
             <div id="arena-question" className="text-center sm:text-left flex-1 px-2 min-w-0">
               <p className="text-[10px] sm:text-xs font-display text-[#FA6E00] uppercase tracking-wider truncate">
-                Manakah FOTO ASLI?
+                Manakah GAMBAR KA?
               </p>
               <p className="text-[8px] sm:text-[9px] card-muted font-mono mt-0.5 truncate">
                 {activeCase.title}
@@ -123,7 +132,7 @@ export function ArenaPage({
             <button
               id="arena-submit-button"
               type="button"
-              disabled={selectedRealChoice === null || showFeedback}
+              disabled={selectedAiChoice === null || showFeedback}
               onClick={onSubmit}
               aria-label="Kirim Analisis"
               className="relative shrink-0 w-[min(38vw,11rem)] sm:w-[12rem] bg-transparent border-0 p-0 cursor-pointer transition-transform duration-200 hover:scale-105 active:scale-95 disabled:opacity-45 disabled:cursor-not-allowed disabled:hover:scale-100"
@@ -233,8 +242,8 @@ export function ArenaPage({
 
                 <div className="card-inset rounded-xl p-3 sm:p-4 text-left">
                   <p className="font-mono text-[10px] sm:text-xs card-text mb-1.5 sm:mb-2 border-b card-divider pb-1">
-                    Jawaban: <span className="text-[#FA6E00] font-bold">Gambar {activeCase.realImage}</span> adalah Asli,{' '}
-                    <span className="font-bold">Gambar {activeCase.aiImage}</span> adalah KA.
+                    Jawaban: <span className="text-[#FA6E00] font-bold">Gambar {activeCase.aiImage}</span> adalah KA,{' '}
+                    <span className="font-bold">Gambar {activeCase.realImage}</span> adalah Asli.
                   </p>
                   <p className="text-[11px] sm:text-xs card-text leading-relaxed font-sans text-justify">
                     {activeCase.explanation}

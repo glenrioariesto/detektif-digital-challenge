@@ -16,7 +16,7 @@ export const useGameState = () => {
     currentCaseIndex: 0,
     answers: [],
     score: 0,
-    selectedRealChoice: null,
+    selectedAiChoice: null,
     showFeedback: false,
   });
 
@@ -29,27 +29,27 @@ export const useGameState = () => {
       currentCaseIndex: 0,
       answers: [],
       score: 0,
-      selectedRealChoice: null,
+      selectedAiChoice: null,
       showFeedback: false,
     });
   };
 
-  const selectRealChoice = (choice: 'A' | 'B') => {
+  const selectAiChoice = (choice: 'A' | 'B') => {
     if (state.showFeedback) return; // Prevent changing after submission
     playSynthesizerNote('btn');
     setState(prev => ({
       ...prev,
-      selectedRealChoice: choice
+      selectedAiChoice: choice
     }));
   };
 
   const submitGuess = () => {
-    if (state.selectedRealChoice === null || state.showFeedback) return;
+    if (state.selectedAiChoice === null || state.showFeedback) return;
 
-    const isCorrect = state.selectedRealChoice === activeCase.realImage;
+    const isCorrect = state.selectedAiChoice === activeCase.aiImage;
     const newAnswer: UserAnswer = {
       caseId: activeCase.id,
-      selectedReal: state.selectedRealChoice,
+      selectedAi: state.selectedAiChoice,
       isCorrect
     };
 
@@ -77,13 +77,13 @@ export const useGameState = () => {
         ...prev,
         pageView: 'result',
         showFeedback: false,
-        selectedRealChoice: null
+        selectedAiChoice: null
       }));
     } else {
       setState(prev => ({
         ...prev,
         currentCaseIndex: prev.currentCaseIndex + 1,
-        selectedRealChoice: null,
+        selectedAiChoice: null,
         showFeedback: false
       }));
     }
@@ -96,7 +96,7 @@ export const useGameState = () => {
       currentCaseIndex: 0,
       answers: [],
       score: 0,
-      selectedRealChoice: null,
+      selectedAiChoice: null,
       showFeedback: false,
     });
   };
@@ -106,13 +106,13 @@ export const useGameState = () => {
     currentCaseIndex: state.currentCaseIndex,
     activeCase,
     totalCases: CASES_DATA.length,
-    selectedRealChoice: state.selectedRealChoice,
+    selectedAiChoice: state.selectedAiChoice,
     showFeedback: state.showFeedback,
     answers: state.answers,
     score: state.score,
     currentAnswerFeedback: state.answers.find(a => a.caseId === activeCase.id),
     startInvestigation,
-    selectRealChoice,
+    selectAiChoice,
     submitGuess,
     advanceCase,
     restartGame,

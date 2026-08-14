@@ -10,6 +10,7 @@ interface Particle {
   text: string;
 }
 
+/** Overlay cursor HUD saja — tidak menutupi background splash. */
 export function InteractiveGridBg() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const mouseRef = useRef({ x: -1000, y: -1000, targetX: -1000, targetY: -1000 });
@@ -49,10 +50,9 @@ export function InteractiveGridBg() {
       const target = e.target as HTMLElement;
       if (target.closest('button') || target.closest('a')) return;
 
-      // Spawn burst of digital binary particles
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 16; i++) {
         const angle = Math.random() * Math.PI * 2;
-        const speed = 2 + Math.random() * 5;
+        const speed = 2 + Math.random() * 4;
         particlesRef.current.push({
           x: e.clientX,
           y: e.clientY,
@@ -70,9 +70,7 @@ export function InteractiveGridBg() {
     window.addEventListener('click', handleClick);
 
     const draw = () => {
-      // Dark cyber background matching body #1e2633
-      ctx.fillStyle = '#1e2633';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const mouse = mouseRef.current;
       if (mouse.x === -1000) {
@@ -83,24 +81,6 @@ export function InteractiveGridBg() {
         mouse.y += (mouse.targetY - mouse.y) * 0.15;
       }
 
-      // 1. Draw hacker grid lines (very faint brand grid)
-      ctx.strokeStyle = 'rgba(250, 110, 0, 0.025)';
-      ctx.lineWidth = 0.5;
-      const gridSize = 60;
-      for (let x = 0; x < canvas.width; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, canvas.height);
-        ctx.stroke();
-      }
-      for (let y = 0; y < canvas.height; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(canvas.width, y);
-        ctx.stroke();
-      }
-
-      // 2. Draw Target Tracker HUD centered on cursor (Brand theme)
       if (mouse.x > 0 && mouse.x < canvas.width) {
         rotationRef.current.r1 += 0.015;
         rotationRef.current.r2 -= 0.008;
@@ -111,71 +91,76 @@ export function InteractiveGridBg() {
         ctx.save();
         ctx.translate(rx, ry);
 
-        // Outer segmented compass ring
-        ctx.strokeStyle = 'rgba(250, 110, 0, 0.2)';
-        ctx.lineWidth = 1;
+        // Outer segmented ring — primary
+        ctx.strokeStyle = 'rgba(250, 110, 0, 0.35)';
+        ctx.lineWidth = 1.25;
         ctx.setLineDash([8, 12]);
         ctx.rotate(rotationRef.current.r2);
         ctx.beginPath();
-        ctx.arc(0, 0, 75, 0, Math.PI * 2);
+        ctx.arc(0, 0, 72, 0, Math.PI * 2);
         ctx.stroke();
 
-        // Inner solid rotating ring
-        ctx.strokeStyle = 'rgba(250, 110, 0, 0.35)';
-        ctx.lineWidth = 1.5;
+        // Inner rotating arcs — brand-hot
+        ctx.strokeStyle = 'rgba(250, 117, 0, 0.55)';
+        ctx.lineWidth = 1.75;
         ctx.setLineDash([]);
         ctx.rotate(rotationRef.current.r1);
         ctx.beginPath();
-        ctx.arc(0, 0, 45, 0, Math.PI * 0.4);
+        ctx.arc(0, 0, 42, 0, Math.PI * 0.4);
         ctx.stroke();
         ctx.beginPath();
-        ctx.arc(0, 0, 45, Math.PI, Math.PI * 1.4);
-        ctx.stroke();
-
-        // Inner target reticle
-        ctx.strokeStyle = 'rgba(250, 110, 0, 0.4)';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        // Crosshair hairs
-        ctx.moveTo(-15, 0); ctx.lineTo(-6, 0);
-        ctx.moveTo(6, 0); ctx.lineTo(15, 0);
-        ctx.moveTo(0, -15); ctx.lineTo(0, -6);
-        ctx.moveTo(0, 6); ctx.lineTo(0, 15);
+        ctx.arc(0, 0, 42, Math.PI, Math.PI * 1.4);
         ctx.stroke();
 
-        // Small center dot
-        ctx.fillStyle = 'rgba(250, 110, 0, 0.8)';
+        // Crosshair — white + primary
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.75)';
+        ctx.lineWidth = 1.25;
         ctx.beginPath();
-        ctx.arc(0, 0, 2, 0, Math.PI * 2);
+        ctx.moveTo(-16, 0);
+        ctx.lineTo(-5, 0);
+        ctx.moveTo(5, 0);
+        ctx.lineTo(16, 0);
+        ctx.moveTo(0, -16);
+        ctx.lineTo(0, -5);
+        ctx.moveTo(0, 5);
+        ctx.lineTo(0, 16);
+        ctx.stroke();
+
+        ctx.fillStyle = '#FA6E00';
+        ctx.beginPath();
+        ctx.arc(0, 0, 2.5, 0, Math.PI * 2);
         ctx.fill();
 
         ctx.restore();
 
-        // 3. HUD status text data offset from cursor
-        ctx.fillStyle = 'rgba(250, 110, 0, 0.4)';
-        ctx.font = 'bold 9px monospace';
+        // HUD status — ink shadow for readability on light splash areas
+        ctx.fillStyle = 'rgba(56, 69, 91, 0.55)';
+        ctx.font = 'bold 9px "Noto Sans", monospace';
         ctx.textAlign = 'left';
+        ctx.fillText(`SYS_LOC: [${Math.round(rx)}, ${Math.round(ry)}]`, rx + 86, ry - 14);
+        ctx.fillText('STATUS: TRACKING_ACTIVE', rx + 86, ry - 2);
+        ctx.fillText('FREQ: 5.8GHZ // CH: 12', rx + 86, ry + 10);
+
+        ctx.fillStyle = 'rgba(250, 110, 0, 0.85)';
         ctx.fillText(`SYS_LOC: [${Math.round(rx)}, ${Math.round(ry)}]`, rx + 85, ry - 15);
         ctx.fillText('STATUS: TRACKING_ACTIVE', rx + 85, ry - 3);
         ctx.fillText('FREQ: 5.8GHZ // CH: 12', rx + 85, ry + 9);
 
-        // Draw dotted line connecting cursor to info text
-        ctx.strokeStyle = 'rgba(250, 110, 0, 0.25)';
-        ctx.lineWidth = 0.75;
+        ctx.strokeStyle = 'rgba(250, 110, 0, 0.4)';
+        ctx.lineWidth = 0.85;
         ctx.beginPath();
-        ctx.moveTo(rx + 55, ry - 10);
+        ctx.moveTo(rx + 52, ry - 10);
         ctx.lineTo(rx + 80, ry - 10);
         ctx.stroke();
       }
 
-      // 4. Update and draw binary burst particles (Brand)
       const particles = particlesRef.current;
       ctx.textAlign = 'center';
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i];
         p.x += p.vx;
         p.y += p.vy;
-        p.alpha -= 0.02;
+        p.alpha -= 0.025;
 
         if (p.alpha <= 0) {
           particles.splice(i, 1);
@@ -183,27 +168,9 @@ export function InteractiveGridBg() {
         }
 
         ctx.fillStyle = `rgba(250, 110, 0, ${p.alpha})`;
-        ctx.font = `bold ${p.size}px monospace`;
+        ctx.font = `bold ${p.size}px "Noto Sans", monospace`;
         ctx.fillText(p.text, p.x, p.y);
       }
-
-      // 5. Draw a scanning vertical laser line sweeping across the screen (Brand)
-      const sweepY = (Date.now() / 25) % (canvas.height + 200) - 100;
-      const sweepGrad = ctx.createLinearGradient(0, sweepY - 40, 0, sweepY + 4);
-      sweepGrad.addColorStop(0, 'rgba(250, 110, 0, 0)');
-      sweepGrad.addColorStop(0.9, 'rgba(250, 110, 0, 0.08)');
-      sweepGrad.addColorStop(1, 'rgba(250, 110, 0, 0.25)');
-
-      ctx.fillStyle = sweepGrad;
-      ctx.fillRect(0, 0, canvas.width, canvas.height); // We use vertical sweep
-
-      // Horizontal scanner laser line
-      ctx.strokeStyle = 'rgba(250, 110, 0, 0.3)';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(0, sweepY);
-      ctx.lineTo(canvas.width, sweepY);
-      ctx.stroke();
 
       animationFrameId = requestAnimationFrame(draw);
     };
@@ -219,5 +186,12 @@ export function InteractiveGridBg() {
     };
   }, []);
 
-  return <canvas id="interactive-grid-bg" ref={canvasRef} className="absolute inset-0 w-full h-full block z-0" style={{ pointerEvents: 'none' }} />;
+  return (
+    <canvas
+      id="interactive-grid-bg"
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full block z-[60] pointer-events-none"
+      aria-hidden="true"
+    />
+  );
 }
