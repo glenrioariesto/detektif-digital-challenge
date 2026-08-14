@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { ZoomIn } from 'lucide-react';
 
 interface MagnifiedImageProps {
+  id?: string;
   src: string;
   alt: string;
   label: 'A' | 'B';
@@ -11,6 +12,7 @@ interface MagnifiedImageProps {
 }
 
 export function MagnifiedImage({
+  id,
   src,
   alt,
   label,
@@ -47,15 +49,12 @@ export function MagnifiedImage({
       clientY = e.clientY;
     }
 
-    // Position of lens relative to container button (absolute parent)
     const xButton = clientX - buttonRect.left;
     const yButton = clientY - buttonRect.top;
 
-    // Position relative to the actual visible image pixels
     const xImage = clientX - imageRect.left;
     const yImage = clientY - imageRect.top;
 
-    // Only show lens if cursor is hovering over the actual visible image contents
     if (
       xImage < 0 ||
       yImage < 0 ||
@@ -67,13 +66,11 @@ export function MagnifiedImage({
     }
 
     const zoom = 2.5;
-    const lensRadius = 70; // 140px / 2
+    const lensRadius = 70;
 
-    // Background size is scaled relative to the actual visible image size
     const bgWidth = imageRect.width * zoom;
     const bgHeight = imageRect.height * zoom;
 
-    // Background position shifts the zoomed image so point under cursor is centered
     const bgX = -(xImage * zoom - lensRadius);
     const bgY = -(yImage * zoom - lensRadius);
 
@@ -98,12 +95,13 @@ export function MagnifiedImage({
 
   return (
     <button
+      id={id ?? `magnified-image-${label.toLowerCase()}`}
       ref={containerRef}
       type="button"
-      className={`relative flex-1 group overflow-hidden rounded-2xl border-2 transition-all duration-300 cursor-crosshair max-w-[48%] h-[160px] xs:h-[200px] sm:h-[280px] md:h-[360px] lg:h-[420px] bg-slate-950 flex items-center justify-center text-left ${
+      className={`relative group overflow-hidden rounded-2xl transition-all duration-300 cursor-crosshair aspect-square w-[min(48%,calc(100dvh-5.5rem))] lg:w-[min(45%,calc(100dvh-9rem))] xl:w-[min(42%,calc(100dvh-10.5rem))] 2xl:w-[min(40%,calc(100dvh-11rem))] max-w-[36rem] shrink-0 bg-white flex items-center justify-center text-left ${
         isSelected
-          ? 'border-cyan-400 glow-cyan ring-1 ring-cyan-400'
-          : 'border-slate-800 hover:border-slate-700 hover:scale-[1.01]'
+          ? 'card-ui ring-2 ring-[#FA7500]'
+          : 'border-4 border-[#FA6E00] shadow-ink hover:scale-[1.01]'
       }`}
       onMouseMove={handleMouseMove as any}
       onMouseEnter={handleMouseEnter}
@@ -114,48 +112,38 @@ export function MagnifiedImage({
       onClick={onSelect}
       aria-label={`Pilih Gambar ${label} sebagai Asli`}
     >
-      {/* Label indicator (Gambar A atau B) */}
-      <div className={`absolute top-2 left-2 sm:top-4 sm:left-4 z-10 font-mono font-bold px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg border transition-all duration-300 flex items-center gap-1 sm:gap-1.5 ${
+      <div className={`absolute top-2 left-2 sm:top-4 sm:left-4 z-10 font-mono font-bold px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border-2 transition-all duration-300 flex items-center gap-1 sm:gap-1.5 ${
         isSelected
-          ? 'bg-cyan-950/80 border-cyan-400 text-cyan-400'
-          : 'bg-slate-900/80 border-slate-700 text-slate-400 group-hover:border-slate-500'
+          ? 'bg-[#FA6E00] border-[#FA6E00] text-white'
+          : 'border-[#FA6E00] text-[#FA6E00] bg-[#FA6E00] text-white'
       }`}>
         <span className="text-[9px] sm:text-xs uppercase tracking-wider">Gambar</span>
         <span className="text-xs sm:text-sm font-black">{label}</span>
       </div>
 
-      {/* Hover Zoom-in Icon Indicator */}
-      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 bg-slate-900/60 backdrop-blur-md p-1 sm:p-1.5 rounded-full border border-slate-700 text-slate-400 opacity-60 group-hover:opacity-100 transition-opacity">
-        <ZoomIn className="w-3 h-3 sm:w-4 sm:h-4" />
-      </div>
-
-      {/* The main image */}
       <img
         ref={imgRef}
         src={src}
         alt={alt}
-        className="max-w-full max-h-full object-contain transition-opacity duration-300"
+        className="w-full h-full object-cover object-center transition-opacity duration-300"
         onLoad={() => setImgLoaded(true)}
         style={{ opacity: imgLoaded ? 1 : 0 }}
       />
 
-      {/* Loading placeholder */}
       {!imgLoaded && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-500 font-mono gap-2 text-xs">
-          <div className="w-8 h-8 border-4 border-cyan-500/20 border-t-cyan-400 rounded-full animate-spin"></div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center card-muted font-mono gap-2 text-xs">
+          <div className="w-8 h-8 border-4 border-[#FA6E00]/20 border-t-[#FA6E00] rounded-full animate-spin"></div>
           Memuat Bukti...
         </div>
       )}
 
-      {/* Selection Overlay */}
       {isSelected && (
-        <div className="absolute inset-0 bg-cyan-500/5 pointer-events-none transition-colors"></div>
+        <div className="absolute inset-0 bg-[#FA6E00]/10 pointer-events-none transition-colors"></div>
       )}
 
-      {/* Magnifier Lens */}
       {lensState.show && imgLoaded && !disabled && (
         <div
-          className="absolute pointer-events-none rounded-full border-2 border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.4)] w-[140px] h-[140px] bg-no-repeat z-40"
+          className="absolute pointer-events-none rounded-full border-2 border-[#FA6E00] shadow-ink w-[140px] h-[140px] bg-no-repeat z-40"
           style={{
             left: `${lensState.x - 70}px`,
             top: `${lensState.y - 70}px`,

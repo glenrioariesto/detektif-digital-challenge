@@ -4,10 +4,10 @@ import { CASES_DATA } from '../data/questions';
 import { playSynthesizerNote } from '../utils/audio';
 
 const getRank = (score: number) => {
-  if (score === 10) return { title: "Mata Elang (Detektif Legendaris)", desc: "Sempurna! Tidak ada satu pun manipulasi KA yang lolos dari pandangan Anda.", color: "text-emerald-400 border-emerald-400 bg-emerald-950/20" };
-  if (score >= 7) return { title: "Detektif Senior", desc: "Sangat jeli melihat keganjilan anatomi, pencahayaan, dan detail buatan.", color: "text-cyan-400 border-cyan-400 bg-cyan-950/20" };
-  if (score >= 4) return { title: "Detektif Magang", desc: "Cukup jeli, namun Anda masih sering terkecoh oleh KA tingkat lanjut.", color: "text-amber-400 border-amber-400 bg-amber-950/20" };
-  return { title: "Mata Blur (Detektif Amatir)", desc: "Anda masih perlu banyak belajar membedakan distorsi piksel dari kamera nyata.", color: "text-rose-400 border-rose-400 bg-rose-950/20" };
+  if (score === 10) return { title: "Mata Elang (Detektif Legendaris)", desc: "Sempurna! Tidak ada satu pun manipulasi KA yang lolos dari pandangan Anda.", color: "text-[#FA6E00] border-[#FA6E00] bg-[#FA6E00]/10" };
+  if (score >= 7) return { title: "Detektif Senior", desc: "Sangat jeli melihat keganjilan anatomi, pencahayaan, dan detail buatan.", color: "text-[#FA7500] border-[#FA6E00] bg-[#FA7500]/10" };
+  if (score >= 4) return { title: "Detektif Magang", desc: "Cukup jeli, namun Anda masih sering terkecoh oleh KA tingkat lanjut.", color: "text-[#38455B] border-[#FA6E00] bg-[#38455B]/10" };
+  return { title: "Mata Blur (Detektif Amatir)", desc: "Anda masih perlu banyak belajar membedakan distorsi piksel dari kamera nyata.", color: "text-[#38455B] border-[#FA6E00] bg-[#38455B]/5" };
 };
 
 export const useGameState = () => {

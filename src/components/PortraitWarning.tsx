@@ -3,30 +3,27 @@ import { RotateCw, Smartphone } from 'lucide-react';
 
 export function PortraitWarning() {
   return (
-    <div className="hidden portrait:flex fixed inset-0 z-[9999] bg-slate-950 text-slate-100 flex-col items-center justify-center text-center p-6 select-none">
+    <div id="portrait-warning" className="hidden portrait:flex fixed inset-0 z-[9999] bg-[#1e2633] text-white flex-col items-center justify-center text-center p-6 select-none">
       <div className="relative w-24 h-24 mb-8 flex items-center justify-center">
-        {/* Phone frame with custom rotate animation */}
         <div 
-          className="w-12 h-20 border-4 border-slate-700 rounded-xl bg-slate-900 flex items-center justify-center transition-transform" 
+          className="w-12 h-20 border-2 border-[#FA6E00] rounded-xl bg-white flex items-center justify-center transition-transform shadow-ink" 
           style={{ 
             animation: 'portraitRotate 0.9s ease-in-out infinite' 
           }}
         >
-          <Smartphone className="w-6 h-6 text-cyan-400" />
+          <Smartphone className="w-6 h-6 text-[#FA6E00]" />
         </div>
         
-        {/* Curved arrow indicator */}
-        <RotateCw className="w-8 h-8 text-cyan-500 absolute -top-1 -right-1 animate-spin" />
+        <RotateCw className="w-8 h-8 text-[#FA7500] absolute -top-1 -right-1 animate-spin" />
       </div>
 
-      <h2 className="text-sm font-black tracking-wider text-white mb-2 uppercase font-mono">
+      <h2 className="text-sm font-display tracking-wider text-white mb-2 uppercase">
         Gunakan Orientasi Horizontal
       </h2>
-      <p className="text-xs text-slate-400 max-w-xs leading-relaxed font-sans">
+      <p className="text-xs text-white/70 max-w-xs leading-relaxed font-sans">
         Silakan putar perangkat Anda ke **lanskap (horizontal)** untuk kenyamanan memeriksa bukti foto secara detail.
       </p>
 
-      {/* Embedded keyframes for custom phone rotation animation */}
       <style>{`
         @keyframes portraitRotate {
           0%, 20% { transform: rotate(0deg); }

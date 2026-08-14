@@ -1,10 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Russo+One&display=swap');
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'CC Regeneration';
+  src: url('../assets/font/FONNTS.COM-CCREGENERATION.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../assets/font/NotoSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../assets/font/NotoSans-ExtraBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../assets/font/NotoSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../assets/font/NotoSans-ExtraBold.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: 'Chakra Petch', system-ui, -apple-system, sans-serif;
-  --font-display: 'Russo One', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Noto Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'CC Regeneration', 'Noto Sans', sans-serif;
+  --font-mono: 'Noto Sans', system-ui, sans-serif;
+
+  --color-brand: #FA6E00;
+  --color-brand-hot: #FA7500;
+  --color-ink: #38455B;
+  --color-ink-deep: #2a3344;
+  --color-ink-dark: #1e2633;
+  --color-line: #FFFFFF;
 
   --radius-3xl: 20px;
   --radius-2xl: 16px;
@@ -14,10 +60,24 @@
   --radius-sm: 4px;
 }
 
+:root {
+  --brand: #FA6E00;
+  --brand-hot: #FA7500;
+  --ink: #38455B;
+  --ink-deep: #2a3344;
+  --ink-dark: #1e2633;
+  --line: #FFFFFF;
+}
+
 body {
-  background-color: #020617; /* slate-950 */
+  background-color: var(--ink-dark);
   font-family: var(--font-sans);
-  color: #f8fafc; /* slate-50 */
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
 }
 
 /* Custom Scrollbars */
@@ -26,17 +86,17 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: var(--ink-dark);
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: var(--ink);
   border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: var(--brand);
 }
 
-/* Cyber Scanline effect for background */
+/* Soft scanline overlay */
 .scanlines {
   position: relative;
   overflow: hidden;
@@ -46,21 +106,66 @@ body {
   display: block;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background: linear-gradient(rgba(56, 69, 91, 0) 50%, rgba(56, 69, 91, 0.18) 50%);
   background-size: 100% 4px;
   z-index: 2;
   pointer-events: none;
 }
 
-/* Neon Glows */
-.glow-cyan {
-  box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+.shadow-ink {
+  box-shadow: 0 10px 24px rgba(56, 69, 91, 0.45);
 }
-.glow-emerald {
-  box-shadow: 0 0 15px rgba(52, 211, 153, 0.4);
+
+/* Shared card system (referensi modal layar penuh) */
+.card-ui {
+  background-color: #FFFFFF;
+  border: 2px solid #FA6E00;
+  box-shadow: 0 10px 24px rgba(56, 69, 91, 0.45);
 }
-.glow-rose {
-  box-shadow: 0 0 15px rgba(251, 113, 133, 0.4);
+
+.card-overlay {
+  background-color: rgba(56, 69, 91, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.card-title {
+  font-family: var(--font-display);
+  color: #FA6E00;
+}
+
+.card-text {
+  color: #38455B;
+}
+
+.card-muted {
+  color: rgba(56, 69, 91, 0.75);
+}
+
+.card-divider {
+  border-color: rgba(250, 110, 0, 0.25);
+}
+
+.card-inset {
+  background-color: rgba(250, 110, 0, 0.08);
+  border: 2px solid #FA6E00;
+}
+
+.btn-card {
+  background-color: #FFFFFF;
+  color: #FA6E00;
+  border: 2px solid #FA6E00;
+  box-shadow: 0 10px 24px rgba(56, 69, 91, 0.45);
+  font-weight: 800;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-card:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-card:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 /* Custom Animations */
@@ -73,6 +178,34 @@ body {
   animation: pulse-slow 3s infinite ease-in-out;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes float-title {
+  0%, 100% { transform: translateY(0) rotate(-0.35deg); }
+  50% { transform: translateY(-14px) rotate(0.35deg); }
+}
+
+.animate-float-title {
+  animation: float-title 3.6s ease-in-out infinite;
+}
+
+@keyframes float-button {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float-button {
+  animation: float-button 3.6s ease-in-out infinite;
+  animation-delay: 0.45s;
+}
+
 @keyframes grid-move {
   0% { background-position: 0 0; }
   100% { background-position: 40px 40px; }
@@ -80,23 +213,23 @@ body {
 
 .bg-grid-cyber {
   background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(148, 163, 184, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   animation: grid-move 20s linear infinite;
 }
 
 /* Image Magnifier Hover Overlay */
 .magnifier-lens {
   position: absolute;
-  border: 2px solid #22d3ee;
+  border: 2px solid #FFFFFF;
   border-radius: 50%;
   cursor: none;
   width: 150px;
   height: 150px;
   display: none;
   pointer-events: none;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5), 0 0 15px rgba(34, 211, 238, 0.5);
+  box-shadow: 0 0 10px rgba(56, 69, 91, 0.55);
   background-repeat: no-repeat;
   z-index: 50;
 }
