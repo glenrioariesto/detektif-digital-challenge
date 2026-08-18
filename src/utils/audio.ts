@@ -38,13 +38,17 @@ export const subscribeAudioState = (listener: AudioListener): (() => void) => {
 
 export const getAudioMuted = (): boolean => isMutedState;
 
+const DEFAULT_BGM_VOLUME = 0.8;
+
 const getBgmAudio = (): HTMLAudioElement | null => {
   if (typeof window === 'undefined') return null;
   if (!bgmAudio) {
     bgmAudio = new Audio(bgmUrl);
     bgmAudio.loop = true;
-    bgmAudio.volume = 0.35;
+    bgmAudio.volume = DEFAULT_BGM_VOLUME;
     bgmAudio.preload = 'auto';
+  } else {
+    bgmAudio.volume = DEFAULT_BGM_VOLUME;
   }
   return bgmAudio;
 };
