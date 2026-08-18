@@ -2,19 +2,41 @@ import React, { useState } from 'react';
 import { RotateCcw, Check, X, BookOpen } from 'lucide-react';
 import { UserAnswer } from '../../types';
 import { CASES_DATA } from '../../data/questions';
+import { AudioToggle } from '../../components/AudioToggle';
+import logoPusbuk from '../../../assets/logo-pusbuk.webp';
 
 interface ResultPageProps {
   score: number;
   answers: UserAnswer[];
   onRestart: () => void;
+  isMuted: boolean;
+  onToggleAudio: () => void;
 }
 
-export function ResultPage({ score, answers, onRestart }: ResultPageProps) {
+export function ResultPage({ score, answers, onRestart, isMuted, onToggleAudio }: ResultPageProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const accuracy = Math.round((score / CASES_DATA.length) * 100);
 
   return (
     <div id="result-page" className="h-screen w-screen bg-[#1e2633] bg-grid-cyber relative flex flex-col items-center justify-center p-3 sm:p-4 scanlines overflow-hidden">
+      {/* Top Left: Logo Pusbuk */}
+      <div id="result-logo" className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-5 md:left-5 z-30 shrink-0">
+        <img
+          src={logoPusbuk}
+          alt="Logo Pusbuk"
+          className="h-8 sm:h-11 md:h-14 lg:h-16 xl:h-20 w-auto object-contain drop-shadow-[0_6px_12px_rgba(56,69,91,0.45)]"
+        />
+      </div>
+
+      {/* Top Right: Mute / Unmute Button */}
+      <div id="result-audio-toggle" className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-5 md:right-5 z-30 shrink-0">
+        <AudioToggle
+          id="result-audio-button"
+          isMuted={isMuted}
+          onToggle={onToggleAudio}
+        />
+      </div>
+
       <div className="absolute top-10 left-10 w-96 h-96 bg-[#FA6E00]/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#FA7500]/10 rounded-full blur-[120px] pointer-events-none"></div>
 

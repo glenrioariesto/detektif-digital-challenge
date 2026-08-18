@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useGameState } from './hooks/useGameState';
+import { useAudio } from './hooks/useAudio';
 import { SplashPage } from './pages/splash/SplashPage';
 import { ArenaPage } from './pages/arena/ArenaPage';
 import { ResultPage } from './pages/result/ResultPage';
@@ -22,9 +23,11 @@ export default function App() {
     restartGame,
   } = useGameState();
 
+  const { isMuted, toggleMute, startBgm } = useAudio();
   const [showFullscreenPrompt, setShowFullscreenPrompt] = useState(false);
 
   const handleStartGame = () => {
+    startBgm();
     const isFullscreenSupported = typeof document !== 'undefined' && !!document.documentElement.requestFullscreen;
     const isCurrentlyFullscreen = typeof document !== 'undefined' && !!document.fullscreenElement;
     if (isFullscreenSupported && !isCurrentlyFullscreen) {
@@ -35,6 +38,7 @@ export default function App() {
   };
 
   const enterFullscreen = async () => {
+    startBgm();
     try {
       if (document.documentElement.requestFullscreen) {
         await document.documentElement.requestFullscreen();
@@ -95,7 +99,11 @@ export default function App() {
       )}
 
       {pageView === 'splash' && (
-        <SplashPage onStart={handleStartGame} />
+        <SplashPage
+          onStart={handleStartGame}
+          isMuted={isMuted}
+          onToggleAudio={toggleMute}
+        />
       )}
 
       {pageView === 'game' && (
@@ -108,6 +116,8 @@ export default function App() {
           onSelectChoice={selectAiChoice}
           onSubmit={submitGuess}
           onAdvance={advanceCase}
+          isMuted={isMuted}
+          onToggleAudio={toggleMute}
         />
       )}
 
@@ -116,6 +126,8 @@ export default function App() {
           score={score}
           answers={answers}
           onRestart={restartGame}
+          isMuted={isMuted}
+          onToggleAudio={toggleMute}
         />
       )}
     </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { XCircle, Search, HelpCircle, ArrowRight, X, ChevronUp, ChevronDown } from 'lucide-react';
 import { Case } from '../../types';
 import { MagnifiedImage } from '../../components/MagnifiedImage';
+import { AudioToggle } from '../../components/AudioToggle';
 import bgGameplay from '../../../assets/background gameplay.webp';
 import tagImg from '../../../assets/tag.webp';
 import logoPusbuk from '../../../assets/logo-pusbuk.webp';
@@ -15,6 +16,8 @@ interface ArenaPageProps {
   onSelectChoice: (choice: 'A' | 'B') => void;
   onSubmit: () => void;
   onAdvance: () => void;
+  isMuted: boolean;
+  onToggleAudio: () => void;
 }
 
 export function ArenaPage({
@@ -26,6 +29,8 @@ export function ArenaPage({
   onSelectChoice,
   onSubmit,
   onAdvance,
+  isMuted,
+  onToggleAudio,
 }: ArenaPageProps) {
   const [isClueOpen, setIsClueOpen] = useState(false);
   const [isHudVisible, setIsHudVisible] = useState(true);
@@ -50,11 +55,21 @@ export function ArenaPage({
           ></div>
         </div>
 
+        {/* Top Left: Logo Pusbuk */}
         <div id="arena-logo" className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-5 md:left-5 z-30 shrink-0">
           <img
             src={logoPusbuk}
             alt="Logo Pusbuk"
             className="h-8 sm:h-11 md:h-14 lg:h-16 xl:h-20 w-auto object-contain drop-shadow-[0_6px_12px_rgba(56,69,91,0.45)]"
+          />
+        </div>
+
+        {/* Top Right: Mute / Unmute Button */}
+        <div id="arena-audio-toggle" className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-5 md:right-5 z-30 shrink-0">
+          <AudioToggle
+            id="arena-audio-button"
+            isMuted={isMuted}
+            onToggle={onToggleAudio}
           />
         </div>
 
