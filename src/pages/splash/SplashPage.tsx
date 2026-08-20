@@ -34,7 +34,7 @@ export function SplashPage({ onStart, isMuted, onToggleAudio }: SplashPageProps)
       </div>
 
       {/* Top Right: Mute / Unmute Button */}
-      <div id="splash-audio-toggle" className="absolute top-3 right-3 sm:top-5 sm:right-5 z-40 shrink-0">
+      <div id="splash-audio-toggle" className="absolute top-3 right-3 sm:top-5 sm:right-5 z-50 shrink-0">
         <AudioToggle
           id="splash-audio-button"
           isMuted={isMuted}
@@ -42,7 +42,7 @@ export function SplashPage({ onStart, isMuted, onToggleAudio }: SplashPageProps)
         />
       </div>
 
-      <div id="splash-content" className="relative z-40 w-full flex flex-col items-center px-4 pb-[16vh] md:pb-[18vh]  pt-[20vh] md:pt-[24vh]">
+      <div id="splash-content" className="relative z-30 w-full flex flex-col items-center px-4 pb-[16vh] md:pb-[18vh]  pt-[20vh] md:pt-[24vh]">
         <img
           id="splash-title"
           src={judulImg}
@@ -55,7 +55,7 @@ export function SplashPage({ onStart, isMuted, onToggleAudio }: SplashPageProps)
           type="button"
           onClick={onStart}
           aria-label="Mulai Penyelidikan"
-          className="cursor-pointer bg-transparent border-0 p-0 transition-transform duration-200 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FA6E00] focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-full"
+          className="cursor-pointer bg-transparent border-0 p-0 transition-transform duration-200 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FA6E00] focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-full relative z-40"
         >
           <img
             src={tombolMulai}

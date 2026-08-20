@@ -190,7 +190,7 @@ export function InteractiveGridBg() {
     <canvas
       id="interactive-grid-bg"
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full block z-[60] pointer-events-none"
+      className="absolute inset-0 w-full h-full block z-20 pointer-events-none"
       aria-hidden="true"
     />
   );

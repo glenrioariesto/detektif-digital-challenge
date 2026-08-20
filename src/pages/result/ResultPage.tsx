@@ -29,7 +29,7 @@ export function ResultPage({ score, answers, onRestart, isMuted, onToggleAudio }
       </div>
 
       {/* Top Right: Mute / Unmute Button */}
-      <div id="result-audio-toggle" className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-5 md:right-5 z-30 shrink-0">
+      <div id="result-audio-toggle" className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-5 md:right-5 z-50 shrink-0">
         <AudioToggle
           id="result-audio-button"
           isMuted={isMuted}
