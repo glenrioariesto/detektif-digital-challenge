@@ -38,7 +38,7 @@ export const subscribeAudioState = (listener: AudioListener): (() => void) => {
 
 export const getAudioMuted = (): boolean => isMutedState;
 
-const DEFAULT_BGM_VOLUME = 0.8;
+const DEFAULT_BGM_VOLUME = 0.25;
 
 const getBgmAudio = (): HTMLAudioElement | null => {
   if (typeof window === 'undefined') return null;
@@ -118,8 +118,6 @@ export const setAudioMuted = (muted: boolean) => {
 
 // Web Audio API Synthesizer for lightweight educational feedback
 export const playSynthesizerNote = (type: 'success' | 'fail' | 'btn' | 'unlock') => {
-  if (isMutedState) return;
-
   try {
     const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
     if (!AudioContextClass) return;
@@ -135,7 +133,7 @@ export const playSynthesizerNote = (type: 'success' | 'fail' | 'btn' | 'unlock')
       osc.type = 'triangle';
       osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
       osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.12); // E5
-      gain.gain.setValueAtTime(0.12, ctx.currentTime);
+      gain.gain.setValueAtTime(0.45, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
       osc.start();
       osc.stop(ctx.currentTime + 0.4);
@@ -146,7 +144,7 @@ export const playSynthesizerNote = (type: 'success' | 'fail' | 'btn' | 'unlock')
       osc.frequency.setValueAtTime(523.25, ctx.currentTime + 0.1); // C5
       osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.2); // E5
       osc.frequency.setValueAtTime(783.99, ctx.currentTime + 0.3); // G5
-      gain.gain.setValueAtTime(0.15, ctx.currentTime);
+      gain.gain.setValueAtTime(0.5, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.6);
       osc.start();
       osc.stop(ctx.currentTime + 0.65);
@@ -155,7 +153,7 @@ export const playSynthesizerNote = (type: 'success' | 'fail' | 'btn' | 'unlock')
       osc.type = 'sawtooth';
       osc.frequency.setValueAtTime(220.00, ctx.currentTime); // A3
       osc.frequency.exponentialRampToValueAtTime(130.81, ctx.currentTime + 0.25); // C3
-      gain.gain.setValueAtTime(0.09, ctx.currentTime);
+      gain.gain.setValueAtTime(0.38, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.26);
       osc.start();
       osc.stop(ctx.currentTime + 0.3);
@@ -163,7 +161,7 @@ export const playSynthesizerNote = (type: 'success' | 'fail' | 'btn' | 'unlock')
       // Short click
       osc.type = 'sine';
       osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
-      gain.gain.setValueAtTime(0.04, ctx.currentTime);
+      gain.gain.setValueAtTime(0.28, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.005, ctx.currentTime + 0.08);
       osc.start();
       osc.stop(ctx.currentTime + 0.1);
