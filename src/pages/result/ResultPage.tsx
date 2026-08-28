@@ -3,7 +3,7 @@ import { RotateCcw, Check, X, BookOpen } from 'lucide-react';
 import { UserAnswer } from '../../types';
 import { CASES_DATA } from '../../data/questions';
 import { AudioToggle } from '../../components/AudioToggle';
-import logoPusbuk from '../../../assets/logo-pusbuk.webp';
+import logoPusbuk from '../../../assets/logo-jenama.webp?v2';
 
 interface ResultPageProps {
   score: number;

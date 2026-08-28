@@ -1,5 +1,5 @@
 import React from 'react';
-import logoPusbuk from '../../../assets/logo-pusbuk.webp';
+import logoPusbuk from '../../../assets/logo-jenama.webp?v2';
 import bgJudul from '../../../assets/background judul.webp';
 import judulImg from '../../../assets/judul.webp';
 import tombolMulai from '../../../assets/tombol mulai.webp';

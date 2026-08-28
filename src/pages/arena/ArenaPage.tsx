@@ -5,7 +5,7 @@ import { MagnifiedImage } from '../../components/MagnifiedImage';
 import { AudioToggle } from '../../components/AudioToggle';
 import bgGameplay from '../../../assets/background gameplay.webp';
 import tagImg from '../../../assets/tag.webp';
-import logoPusbuk from '../../../assets/logo-pusbuk.webp';
+import logoPusbuk from '../../../assets/logo-jenama.webp?v2';
 
 interface ArenaPageProps {
   currentCaseIndex: number;
@@ -136,10 +136,10 @@ export function ArenaPage({
             </button>
             
             <div id="arena-question" className="text-center sm:text-left flex-1 px-2 min-w-0">
-              <p className="text-[10px] sm:text-xs font-display text-[#FA6E00] uppercase tracking-wider truncate">
+              <p className="text-[11px] sm:text-[13px] font-display text-[#FA6E00] uppercase tracking-wider truncate">
                 Manakah GAMBAR KA?
               </p>
-              <p className="text-[8px] sm:text-[9px] card-muted font-mono mt-0.5 truncate">
+              <p className="text-[9.5px] sm:text-[11px] card-muted font-mono mt-0.5 truncate">
                 {activeCase.title}
               </p>
             </div>
