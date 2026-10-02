@@ -5,6 +5,7 @@ import { SplashPage } from './pages/splash/SplashPage';
 import { ArenaPage } from './pages/arena/ArenaPage';
 import { ResultPage } from './pages/result/ResultPage';
 import { PortraitWarning } from './components/PortraitWarning';
+import { ObjectivesModal } from './components/ObjectivesModal';
 
 export default function App() {
   const {
@@ -20,14 +21,21 @@ export default function App() {
     selectAiChoice,
     submitGuess,
     advanceCase,
+    jumpToCase,
     restartGame,
   } = useGameState();
 
   const { isMuted, toggleMute, startBgm } = useAudio();
   const [showFullscreenPrompt, setShowFullscreenPrompt] = useState(false);
+  const [showObjectivesModal, setShowObjectivesModal] = useState(false);
 
   const handleStartGame = () => {
     startBgm();
+    setShowObjectivesModal(true);
+  };
+
+  const handleProceedFromObjectives = () => {
+    setShowObjectivesModal(false);
     const isFullscreenSupported = typeof document !== 'undefined' && !!document.documentElement.requestFullscreen;
     const isCurrentlyFullscreen = typeof document !== 'undefined' && !!document.fullscreenElement;
     if (isFullscreenSupported && !isCurrentlyFullscreen) {
@@ -118,6 +126,9 @@ export default function App() {
           onAdvance={advanceCase}
           isMuted={isMuted}
           onToggleAudio={toggleMute}
+          answers={answers}
+          onJumpToCase={jumpToCase}
+          onOpenObjectives={() => setShowObjectivesModal(true)}
         />
       )}
 
@@ -131,10 +142,19 @@ export default function App() {
         />
       )}
 
-      {/* Footer Copyright */}
-      <footer className="fixed bottom-1 left-0 right-0 z-40 text-center pointer-events-none select-none text-[10px] text-white/60 font-medium tracking-wide">
-        Copyright 2026 Pusat Perbukuan
-      </footer>
+      {/* Modal Tujuan Pembelajaran / Simulasi */}
+      <ObjectivesModal
+        isOpen={showObjectivesModal}
+        onClose={() => setShowObjectivesModal(false)}
+        onStart={handleProceedFromObjectives}
+      />
+
+      {/* Footer Copyright: Hanya tampil di halaman tanpa kontrol (Splash & Result) */}
+      {pageView !== 'game' && (
+        <footer className="fixed bottom-1.5 left-0 right-0 z-40 text-center pointer-events-none select-none text-[10px] text-white/70 font-medium tracking-wide">
+          Copyright 2026 Pusat Perbukuan
+        </footer>
+      )}
     </div>
   );
 }

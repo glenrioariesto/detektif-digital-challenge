@@ -59,11 +59,35 @@ export const useGameState = () => {
       playSynthesizerNote('fail');
     }
 
+    setState(prev => {
+      const existingIdx = prev.answers.findIndex(a => a.caseId === activeCase.id);
+      let updatedAnswers = [...prev.answers];
+      if (existingIdx !== -1) {
+        updatedAnswers[existingIdx] = newAnswer;
+      } else {
+        updatedAnswers.push(newAnswer);
+      }
+      const newScore = updatedAnswers.filter(a => a.isCorrect).length;
+
+      return {
+        ...prev,
+        answers: updatedAnswers,
+        score: newScore,
+        showFeedback: true
+      };
+    });
+  };
+
+  const jumpToCase = (index: number) => {
+    if (index < 0 || index >= CASES_DATA.length) return;
+    playSynthesizerNote('btn');
+    const targetCase = CASES_DATA[index];
+    const existingAnswer = state.answers.find(a => a.caseId === targetCase.id);
     setState(prev => ({
       ...prev,
-      answers: [...prev.answers, newAnswer],
-      score: isCorrect ? prev.score + 1 : prev.score,
-      showFeedback: true
+      currentCaseIndex: index,
+      selectedAiChoice: existingAnswer ? existingAnswer.selectedAi : null,
+      showFeedback: !!existingAnswer,
     }));
   };
 
@@ -80,11 +104,14 @@ export const useGameState = () => {
         selectedAiChoice: null
       }));
     } else {
+      const nextIndex = state.currentCaseIndex + 1;
+      const targetCase = CASES_DATA[nextIndex];
+      const existingAnswer = state.answers.find(a => a.caseId === targetCase.id);
       setState(prev => ({
         ...prev,
-        currentCaseIndex: prev.currentCaseIndex + 1,
-        selectedAiChoice: null,
-        showFeedback: false
+        currentCaseIndex: nextIndex,
+        selectedAiChoice: existingAnswer ? existingAnswer.selectedAi : null,
+        showFeedback: !!existingAnswer
       }));
     }
   };
@@ -115,6 +142,7 @@ export const useGameState = () => {
     selectAiChoice,
     submitGuess,
     advanceCase,
+    jumpToCase,
     restartGame,
     getRank,
   };

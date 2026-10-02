@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { XCircle, Search, HelpCircle, ArrowRight, X, ChevronUp, ChevronDown } from 'lucide-react';
-import { Case } from '../../types';
+import { XCircle, Search, HelpCircle, ArrowRight, X, ChevronUp, ChevronDown, Target } from 'lucide-react';
+import { Case, UserAnswer } from '../../types';
+import { CASES_DATA } from '../../data/questions';
 import { MagnifiedImage } from '../../components/MagnifiedImage';
 import { AudioToggle } from '../../components/AudioToggle';
 import bgGameplay from '../../../assets/background gameplay.webp';
@@ -18,6 +19,9 @@ interface ArenaPageProps {
   onAdvance: () => void;
   isMuted: boolean;
   onToggleAudio: () => void;
+  answers: UserAnswer[];
+  onJumpToCase: (caseIndex: number) => void;
+  onOpenObjectives?: () => void;
 }
 
 export function ArenaPage({
@@ -31,6 +35,9 @@ export function ArenaPage({
   onAdvance,
   isMuted,
   onToggleAudio,
+  answers,
+  onJumpToCase,
+  onOpenObjectives,
 }: ArenaPageProps) {
   const [isClueOpen, setIsClueOpen] = useState(false);
   const [isHudVisible, setIsHudVisible] = useState(true);
@@ -71,6 +78,57 @@ export function ArenaPage({
             isMuted={isMuted}
             onToggle={onToggleAudio}
           />
+        </div>
+
+        {/* Right Side: Level Selector in Red Brand Area (Level 1 - 10) */}
+        <div
+          id="arena-level-selector"
+          className="absolute right-2 sm:right-3 md:right-4 top-13 sm:top-16 md:top-20 z-30 flex flex-col items-center bg-gradient-to-b from-[#FA6E00] via-[#E85D00] to-[#C93B00] border-2 border-white/80 shadow-[0_8px_24px_rgba(0,0,0,0.45)] rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 select-none"
+        >
+          <div className="text-[7.5px] sm:text-[9px] md:text-[10px] font-display text-white tracking-widest uppercase mb-1 sm:mb-1.5 flex items-center gap-1 drop-shadow-sm">
+            <span>🎯</span>
+            <span className="hidden sm:inline">KASUS</span>
+          </div>
+
+          <div className="flex flex-col gap-1 sm:gap-1.5 max-h-[64vh] overflow-y-auto pr-0.5 custom-scrollbar">
+            {Array.from({ length: totalCases }, (_, i) => {
+              const caseNum = i + 1;
+              const isCurrent = i === currentCaseIndex;
+              const answer = answers.find(a => a.caseId === caseNum);
+              const isAnswered = !!answer;
+              const isCorrect = answer?.isCorrect;
+
+              return (
+                <button
+                  key={caseNum}
+                  type="button"
+                  onClick={() => onJumpToCase(i)}
+                  className={`relative w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-lg sm:rounded-xl font-display text-xs sm:text-sm font-bold flex items-center justify-center transition-all duration-200 cursor-pointer ${
+                    isCurrent
+                      ? 'bg-white text-[#FA6E00] ring-2 sm:ring-3 ring-white scale-110 shadow-lg font-black z-10'
+                      : isAnswered
+                      ? isCorrect
+                        ? 'bg-emerald-600 text-white hover:bg-emerald-500 hover:scale-105 border border-emerald-300 shadow-xs'
+                        : 'bg-[#1e2633]/90 text-white/90 hover:bg-[#2a3344] hover:scale-105 border border-white/30 shadow-xs'
+                      : 'bg-white/20 text-white hover:bg-white/40 hover:scale-105 border border-white/25 shadow-xs'
+                  }`}
+                  title={`Kasus ${caseNum}: ${CASES_DATA[i]?.title || ''}${
+                    isAnswered ? (isCorrect ? ' (Terjawab Benar)' : ' (Terjawab Salah)') : ' (Klik untuk pindah level)'
+                  }`}
+                >
+                  <span>{caseNum}</span>
+                  {/* Status Indicator Badge */}
+                  {isAnswered && (
+                    <span
+                      className={`absolute -top-0.5 -right-0.5 w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full border border-white ${
+                        isCorrect ? 'bg-emerald-400' : 'bg-rose-500'
+                      }`}
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         <div
@@ -134,6 +192,18 @@ export function ArenaPage({
             >
               <Search className="w-8 h-8 sm:w-9 sm:h-9 stroke-[2.75]" />
             </button>
+
+            {onOpenObjectives && (
+              <button
+                id="arena-objectives-button"
+                type="button"
+                onClick={onOpenObjectives}
+                className="shrink-0 flex items-center justify-center text-[#FA6E00] transition-all cursor-pointer hover:scale-110 active:scale-95 bg-transparent border-0 p-1"
+                title="Tujuan Pembelajaran"
+              >
+                <Target className="w-8 h-8 sm:w-9 sm:h-9 stroke-[2.5]" />
+              </button>
+            )}
             
             <div id="arena-question" className="text-center sm:text-left flex-1 px-2 min-w-0">
               <p className="text-[11px] sm:text-[13px] font-display text-[#FA6E00] uppercase tracking-wider truncate">
