@@ -6,6 +6,7 @@ interface AudioToggleProps {
   onToggle: () => void;
   className?: string;
   id?: string;
+  variant?: 'default' | 'footer';
 }
 
 export function AudioToggle({
@@ -13,7 +14,27 @@ export function AudioToggle({
   onToggle,
   className = '',
   id = 'audio-toggle-button',
+  variant = 'default',
 }: AudioToggleProps) {
+  if (variant === 'footer') {
+    return (
+      <button
+        id={id}
+        type="button"
+        onClick={onToggle}
+        aria-label={isMuted ? 'Nyalakan Musik' : 'Matikan Musik'}
+        title={isMuted ? 'Nyalakan Musik (Unmute)' : 'Matikan Musik (Mute)'}
+        className={`shrink-0 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full border-2 border-[#FA6E00] bg-white text-[#FA6E00] hover:bg-[#FA6E00] hover:text-white flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-none ${className}`}
+      >
+        {isMuted ? (
+          <VolumeX className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 stroke-[2.5]" />
+        ) : (
+          <Volume2 className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 stroke-[2.5]" />
+        )}
+      </button>
+    );
+  }
+
   return (
     <button
       id={id}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Target, Fingerprint, ShieldCheck, ChevronLeft, ChevronRight, X, Sparkles } from 'lucide-react';
+import { HelpCircle, Fingerprint, ShieldCheck, ChevronLeft, ChevronRight, X, Sparkles } from 'lucide-react';
 import { playSynthesizerNote } from '../utils/audio';
 
 interface ObjectivesModalProps {
@@ -22,7 +22,7 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    icon: <Target className="w-5 h-5 sm:w-6 sm:h-6 text-[#FA6E00]" />,
+    icon: <HelpCircle className="w-5 h-5 sm:w-6 sm:h-6 text-[#FA6E00]" />,
     title: 'Tujuan Pembelajaran',
     subtitle: 'Simulasi Forensik Detektif Digital',
     items: [
@@ -103,45 +103,45 @@ export function ObjectivesModal({ isOpen, onClose, onStart }: ObjectivesModalPro
     >
       <div
         id="objectives-modal-card"
-        className="relative max-w-lg w-full card-ui rounded-3xl p-5 sm:p-7 shadow-2xl flex flex-col border-2 border-[#FA6E00]/40 overflow-hidden"
+        className="relative max-w-lg w-full card-ui rounded-3xl p-4 sm:p-7 shadow-2xl flex flex-col border-2 border-[#FA6E00]/40 overflow-hidden max-h-[94vh]"
       >
         {/* Close Button */}
         <button
           type="button"
           onClick={handleClose}
-          className="absolute top-4 right-4 text-stone-400 hover:text-[#FA6E00] transition-colors cursor-pointer z-10 p-1"
+          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 text-stone-400 hover:text-[#FA6E00] transition-colors cursor-pointer z-10 p-1"
           title="Tutup"
         >
           <X className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
 
         {/* Header */}
-        <div className="flex items-center gap-3 pb-3 border-b card-divider">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-[#FA6E00]/10 border-2 border-[#FA6E00] flex items-center justify-center shrink-0 shadow-sm">
+        <div className="flex items-center gap-2.5 sm:gap-3 pb-2.5 sm:pb-3 border-b card-divider">
+          <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#FA6E00]/10 border-2 border-[#FA6E00] flex items-center justify-center shrink-0 shadow-sm">
             {slide.icon}
           </div>
           <div className="min-w-0 pr-6">
-            <h3 className="text-sm sm:text-base md:text-lg font-display text-[#FA6E00] uppercase tracking-wider truncate">
+            <h3 className="text-xs sm:text-base md:text-lg font-display text-[#FA6E00] uppercase tracking-wider truncate">
               {slide.title}
             </h3>
-            <p className="text-[10px] sm:text-xs font-mono card-muted tracking-wide truncate">
+            <p className="text-[9px] sm:text-xs font-mono card-muted tracking-wide truncate">
               {slide.subtitle}
             </p>
           </div>
         </div>
 
         {/* Content Body */}
-        <div className="py-4 sm:py-5 flex flex-col gap-3 min-h-[170px] sm:min-h-[190px] justify-center">
+        <div className="py-2.5 sm:py-5 flex flex-col gap-2 sm:gap-3 min-h-[120px] sm:min-h-[180px] justify-center overflow-y-auto">
           {slide.items.map((item, idx) => (
             <div
               key={idx}
-              className="card-inset rounded-2xl p-3 sm:p-4 border border-[#FA6E00]/20 bg-white/60 shadow-xs flex flex-col gap-1 text-left"
+              className="card-inset rounded-xl sm:rounded-2xl p-2.5 sm:p-4 border border-[#FA6E00]/20 bg-white/60 shadow-xs flex flex-col gap-1 text-left"
             >
-              <div className="flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#FA6E00]">
-                <Sparkles className="w-3.5 h-3.5 shrink-0" />
+              <div className="flex items-center gap-1.5 font-bold text-[11px] sm:text-sm text-[#FA6E00]">
+                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
                 <span>{item.keyword}</span>
               </div>
-              <p className="text-[11px] sm:text-xs text-[#38455B] font-medium leading-relaxed text-justify">
+              <p className="text-[10px] sm:text-xs text-[#38455B] font-medium leading-relaxed text-justify">
                 {item.text}
               </p>
             </div>

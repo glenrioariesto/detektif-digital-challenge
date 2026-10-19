@@ -125,10 +125,10 @@ export function MagnifiedImage({
       id={id ?? `magnified-image-${label.toLowerCase()}`}
       ref={containerRef}
       type="button"
-      className={`relative group overflow-hidden rounded-2xl transition-all duration-300 cursor-crosshair aspect-square w-[min(48%,calc(100dvh-5.5rem))] lg:w-[min(45%,calc(100dvh-9rem))] xl:w-[min(42%,calc(100dvh-10.5rem))] 2xl:w-[min(40%,calc(100dvh-11rem))] max-w-[36rem] shrink-0 bg-white flex items-center justify-center text-left ${
+      className={`relative group overflow-hidden rounded-xl sm:rounded-2xl transition-all duration-300 cursor-crosshair aspect-square w-[min(40vw,calc(100dvh-7.5rem))] sm:w-[min(42vw,calc(100dvh-8rem))] md:w-[min(41vw,calc(100dvh-8.5rem))] lg:w-[min(39vw,calc(100dvh-9.5rem))] xl:w-[min(37vw,calc(100dvh-10.5rem))] 2xl:w-[min(35vw,calc(100dvh-11rem))] max-w-[32rem] shrink-0 bg-white flex items-center justify-center text-left ${
         isSelected
           ? 'card-ui ring-2 ring-[#FA7500]'
-          : 'border-4 border-[#FA6E00] shadow-ink hover:scale-[1.01]'
+          : 'border-2 sm:border-4 border-[#FA6E00] shadow-ink hover:scale-[1.01]'
       }`}
       onMouseMove={handleMouseMove as any}
       onMouseEnter={handleMouseEnter}
@@ -139,13 +139,13 @@ export function MagnifiedImage({
       onClick={onSelect}
       aria-label={`Pilih Gambar ${label} sebagai hasil AI`}
     >
-      <div className={`absolute top-2 left-2 sm:top-4 sm:left-4 z-10 font-mono font-bold px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border-2 transition-all duration-300 flex items-center gap-1 sm:gap-1.5 ${
+      <div className={`absolute top-1.5 left-1.5 sm:top-3 sm:left-3 md:top-4 md:left-4 z-10 font-mono font-bold px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full border sm:border-2 transition-all duration-300 flex items-center gap-1 sm:gap-1.5 ${
         isSelected
           ? 'border-[#FA6E00] bg-[#FA6E00] text-white'
           : 'bg-white border-[#FA6E00] text-[#FA6E00]'
       }`}>
-        <span className="text-[9px] sm:text-xs uppercase tracking-wider">Gambar</span>
-        <span className="text-xs sm:text-sm font-black">{label}</span>
+        <span className="text-[8px] sm:text-[10px] md:text-xs uppercase tracking-wider">Gambar</span>
+        <span className="text-[9px] sm:text-xs md:text-sm font-black">{label}</span>
       </div>
 
       <img
@@ -170,7 +170,7 @@ export function MagnifiedImage({
 
       {lensState.show && imgLoaded && !disabled && (
         <div
-          className="absolute pointer-events-none rounded-full border-2 border-[#FA6E00] shadow-ink w-[140px] h-[140px] bg-no-repeat z-40"
+          className="absolute pointer-events-none rounded-full border-2 border-[#FA6E00] shadow-ink w-[110px] h-[110px] sm:w-[140px] sm:h-[140px] bg-no-repeat z-40"
           style={{
             left: `${lensState.x - 70}px`,
             top: `${lensState.y - 70}px`,
