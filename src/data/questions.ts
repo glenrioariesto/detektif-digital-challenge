@@ -24,37 +24,37 @@ import level10Real from '../../assets/level-10-real.webp';
 export const CASES_DATA: Case[] = [
   {
     id: 1,
-    title: "Kucing Oren",
-    category: "Anatomi Hewan & Objek Dipegang",
-    description: "Generator AI sering membuat hewan melakukan pose manusia yang tidak masuk akal. Cari gambar kucing yang memegang kamera atau minuman dengan cara yang tidak alami bagi anatomi kaki kucing.",
+    title: "Tanaman Hias di Pot Hitam",
+    category: "Tulisan Tangan & Tekstur Permukaan",
+    description: "Foto objek sehari-hari hasil rekayasa AI sering menghilangkan detail penanda autentik seperti tulisan tangan di pot, serta membuat kilap daun dan butiran tanah tampak terlalu seragam. Cari gambar tanaman yang tampak terlalu mulus tanpa jejak penggunaan nyata.",
     imageA: level1Ai,
     imageB: level1Real,
     realImage: "B",
     aiImage: "A",
-    locationOfArtifacts: "Kaki Depan, Cangkir & Pose Selfie",
+    locationOfArtifacts: "Tulisan Pot, Tekstur Tanah & Kilap Daun",
     clues: [
-      "Periksa kaki depan di Gambar A. Apakah kucing benar-benar bisa memegang cangkir dan kamera seperti tangan manusia?",
-      "Lihat es dan sedotan di minuman hijau Gambar A. Apakah bentuknya konsisten atau ada bagian yang meleleh/aneh?",
-      "Bandingkan dengan Gambar B. Apakah pose berdiri di ubin masih masuk akal untuk seekor kucing sungguhan?"
+      "Periksa dinding pot plastik hitam pada kedua gambar. Apakah ada tulisan cat putih 'kel 8 IX' khas inventaris kelas di Gambar B yang tidak ditemukan pada pot polos Gambar A?",
+      "Perhatikan permukaan daun dan pencahayaan di Gambar A. Apakah kilap daunnya tampak terlalu licin dan merata seperti render digital?",
+      "Bandingkan tekstur tanah di dalam pot serta nat keramik lantai di Gambar B yang memiliki ketidaksempurnaan alami."
     ],
-    explanation: "Gambar A adalah HASIL KA. Kucing oren berpose selfie sambil memegang matcha iced drink — anatomi kaki depan dipaksa meniru tangan manusia, sesuatu yang tidak terjadi pada foto nyata. Gambar B adalah FOTO ASLI. Kucing berdiri di ubin dengan kaki, ekor, dan proporsi tubuh yang natural."
+    explanation: "Gambar A adalah HASIL KA. Pot hitam tampak terlalu mulus sempurna tanpa tulisan penanda, kilap permukaan daun terlalu seragam, dan efek blur latar belakang tampak sintetis. Gambar B adalah FOTO ASLI. Menampilkan tanaman hias Aglaonema dalam pot plastik hitam dengan tulisan cat putih 'kel 8 IX', tekstur tanah yang alami, serta ubin lantai nyata."
   },
   {
     id: 2,
-    title: "Kios Sayur di Pasar Tradisional",
-    category: "Teks Label & Pencahayaan Pasar",
-    description: "Generator AI sering gagal membuat teks tulisan pada papan harga atau label kios di pasar, serta pencahayaan lampu gantung yang tidak konsisten secara fisik. Cari kios pasar yang teks labelnya tidak terbaca dan bentuk objeknya aneh.",
+    title: "Etalase Warung & Keranjang Jajanan",
+    category: "Teks Kemasan Produk & Properti Warung",
+    description: "Generator AI sangat sering gagal merender tulisan merek pada bungkus jajanan di warung sehingga hurufnya berubah menjadi simbol acak (gibberish). Cari foto etalase warung yang teks kemasannya tidak terbaca dan memiliki objek ganjil.",
     imageA: level2Real,
     imageB: level2Ai,
     realImage: "A",
     aiImage: "B",
-    locationOfArtifacts: "Teks Papan Harga, Bohlam Lampu & Detail Sayuran",
+    locationOfArtifacts: "Teks Bungkus Jajanan, Cobek & Capitan",
     clues: [
-      "Perbesar tulisan pada papan nama dan label harga di Gambar B. Apakah huruf-hurufnya bisa dibaca sebagai kata bermakna atau hanya coretan acak khas AI?",
-      "Perhatikan filamen dan kabel lampu gantung di Gambar B. Apakah konstruksi lampu dan pantulan cahayanya mengikuti hukum fisika yang masuk akal?",
-      "Bandingkan dengan Gambar A. Apakah tomat, cabai hijau, dan sayuran tertata secara alami dengan lampu spiral penerangan pasar malam sungguhan?"
+      "Perbesar bungkus makanan ringan di dalam keranjang hijau pada Gambar B. Apakah huruf pada kemasannya bisa dibaca dengan jelas atau berubah menjadi karakter acak khas AI?",
+      "Perhatikan benda di sebelah keranjang hijau pada Gambar B. Apakah wajar ada cobek di atas etalase kaca dengan bentuk yang tampak melebur?",
+      "Bandingkan dengan Gambar A. Apakah tulisan merek 'Garuda Pilus' dan 'Brownies Crispy' terbaca jelas, lengkap dengan toples kerupuk dan capitan besi?"
     ],
-    explanation: "Gambar B adalah HASIL KA. Tulisan pada papan harga dan label di Gambar B berupa huruf aneh/gibberish yang tidak bermakna, serta lampu filamen gantung tampak artifisial. Gambar A adalah FOTO ASLI. Menampilkan kios pedagang pasar tradisional dengan aneka sayuran segar (tomat, cabai, sawi) dan lampu penerangan pasar yang nyata."
+    explanation: "Gambar B adalah HASIL KA. Tulisan merek pada bungkus jajanan di keranjang hijau mengalami distorsi huruf acak (gibberish) yang tidak terbaca, ditambah kemunculan objek mirip cobek yang tidak wajar di atas etalase. Gambar A adalah FOTO ASLI. Teks kemasan 'Garuda Pilus' dan 'Brownies Crispy' terbaca tajam di atas taplak kotak-kotak hijau bersama toples kerupuk dan capitan."
   },
   {
     id: 3,
@@ -75,121 +75,121 @@ export const CASES_DATA: Case[] = [
   },
   {
     id: 4,
-    title: "Pemandangan Sawah Pedesaan",
-    category: "Lanskap Alam & Arsitektur Desa",
-    description: "Pemandangan pedesaan buatan AI sering memadukan elemen arsitektur megah yang tidak proporsional dengan tekstur sawah yang terlalu mulus atau seragam seperti lukisan fantasi. Cari lanskap yang detail geometris dan vegetasinya terasa artifisial.",
+    title: "Kucing Putih di Dekat Kursi Kayu",
+    category: "Tekstur Bulu Hewan & Pencahayaan Dramatis",
+    description: "AI sering menghasilkan gambar hewan peliharaan dengan pencahayaan dramatis yang berlebihan, bulu yang tampak berpendar terlalu halus seperti boneka, dan pose kaki yang kurang natural. Cari gambar kucing putih yang tampak seperti ilustrasi sinematik.",
     imageA: level4Real,
     imageB: level4Ai,
     realImage: "A",
     aiImage: "B",
-    locationOfArtifacts: "Kubah Masjid, Jalur Aspal Meliuk & Tekstur Bulir Padi",
+    locationOfArtifacts: "Tekstur Bulu, Bantalan Kaki & Sinar Matahari",
     clues: [
-      "Perhatikan kubah masjid dan menara di Gambar B. Apakah gaya arsitektur dan proporsinya tampak seperti bangunan nyata atau lukisan fantasi yang ditempelkan?",
-      "Lihat permukaan jalan aspal di Gambar B. Apakah kelokan jalan dan garis putihnya tampak sangat mulus tanpa cacat tekstur jalanan desa pada umumnya?",
-      "Bandingkan dengan Gambar A. Apakah ada aktivitas kehidupan nyata seperti pesepeda ontel, mobil pikap, pohon kelapa, dan kabut pagi di lereng gunung?"
+      "Perhatikan tekstur bulu dan sorot cahaya matahari pada Gambar B. Apakah bulunya tampak terlalu halus berpendar dengan garis cahaya emas yang dramatis?",
+      "Lihat pose kaki depan kucing yang terangkat ke arah kamera di Gambar B. Apakah bantalan kaki merah mudanya tampak seperti lukisan digital?",
+      "Bandingkan dengan Gambar A. Apakah terlihat momen alami kucing putih yang sedang menyandarkan dagu di kaki kursi kayu sambil menggigit selang plastik bening?"
     ],
-    explanation: "Gambar B adalah HASIL KA. Kubah masjid besar di tengah sawah tampak seperti ilustrasi fantasi: jalan aspal meliuk terlalu licin sempurna tanpa marka realistis, dan bulir padi di latar depan terlalu seragam. Gambar A adalah FOTO ASLI. Pemandangan pedesaan Indonesia nyata menampilkan pesepeda, mobil bak terbuka, deretan pohon kelapa, dan rumah warga dengan pencahayaan matahari pagi alami."
+    explanation: "Gambar B adalah HASIL KA. Anak kucing putih tampil dengan pencahayaan keemasan yang terlalu sinematik, tekstur bulu sehalus kapas digital, dan pose mengulurkan kaki depan ke kamera yang tampak dibuat-buat. Gambar A adalah FOTO ASLI. Kucing putih terekam secara candid dari sudut atas sedang menyandarkan kepala di palang kursi kayu sambil bermain menggigit selang plastik bening."
   },
   {
     id: 5,
-    title: "Kepulauan Karst Raja Ampat",
-    category: "Geografi Pesisir & Terumbu Karang",
-    description: "AI sering menghasilkan pemandangan pulau karst tropis yang pulau-pulaunya berbentuk bulat simetris tidak alami, bentuk tebing yang meleleh, dan kapal laut yang tidak proporsional. Cari lanskap laut yang pulau dan terumbu karangnya tampak janggal.",
+    title: "Tiang Listrik & Kabel Semrawut",
+    category: "Logika Konstruksi Kabel & Utilitas Kota",
+    description: "Saat menggambar infrastruktur seperti tiang listrik, AI sering membuat jalur kabel yang terputus di udara, isolator yang tidak terhubung secara logis, serta kotak panel yang terlalu bersih. Cari tiang listrik yang sambungan kabel dan komponennya tidak masuk akal.",
     imageA: level5Ai,
     imageB: level5Real,
     realImage: "B",
     aiImage: "A",
-    locationOfArtifacts: "Bentuk Pulau Karst, Kapal Melayang & Terumbu Karang",
+    locationOfArtifacts: "Sambungan Kabel, Isolator & Kotak Panel",
     clues: [
-      "Perbesar kapal-kapal putih kecil yang berada di perairan Gambar A. Apakah bentuk kapalnya proporsional atau tampak mencair dan tidak memiliki detail lambung kapal yang jelas?",
-      "Perhatikan pulau kecil di bagian tengah bawah Gambar A. Apakah tebing batu dan puncak pohonnya tampak terlalu membulat atau berulang secara tidak wajar?",
-      "Lihat perairan di Gambar B. Apakah gradasi terumbu karang dangkal dan tebing karst memiliki tekstur batuan kapur alami yang acak dan organik?"
+      "Perbesar bagian puncak tiang dan gulungan kabel di Gambar A. Apakah jalur kabelnya tersambung secara logis atau ada ujung kabel dan isolator yang menyatu secara aneh?",
+      "Periksa dua kotak panel berdampingan (hitam dan putih) serta lampu jalan di Gambar A. Apakah penataannya lazim ditemukan pada tiang beton biasa?",
+      "Bandingkan dengan Gambar B. Apakah tampak kotak panel besi tua berkarat dengan tiga bulatan oranye dan lilitan ijuk hitam penghalang panjat yang nyata?"
     ],
-    explanation: "Gambar A adalah HASIL KA. Gugusan pulau karst terlihat seperti miniatur digital: bentuk pulau-pulau bulat seragam, kapal-kapal putih berukuran aneh tanpa detail perahu asli, dan pola terumbu karang di tepi pantai tampak di-generate secara matematis. Gambar B adalah FOTO ASLI. Pemandangan udara Raja Ampat dengan air laut toska jernih, terumbu karang bawah laut alami, dan formasi batuan karst nyata."
+    explanation: "Gambar A adalah HASIL KA. Konstruksi tiang listrik tidak logis: terdapat dua kotak panel bersih yang berdampingan secara janggal, lampu jalan yang menempel aneh, serta untaian kabel dan isolator yang tidak mengikuti fungsi kelistrikan nyata. Gambar B adalah FOTO ASLI. Menampilkan tiang listrik beton sungguhan dengan kotak panel berkarat, lilitan ijuk hitam, dan kabel semrawut berlatar langit mendung."
   },
   {
     id: 6,
-    title: "Aksi Sepak Bola di Lapangan",
-    category: "Fisika Olahraga & Pola Geometris Bola",
-    description: "AI sering gagal menggambar pola geometris segi lima/segi enam (pentagon/heksagon) pada bola sepak, serta sering menghasilkan stud (pul) sepatu bola yang menembus tanah atau melayang aneh. Cari foto sepak bola yang pola bolanya tidak beraturan.",
+    title: "Membakar Sate Ayam di Atas Arang",
+    category: "Anatomi Jari Tangan & Efek Bara Api",
+    description: "Gambar aktivitas kuliner malam hari buatan AI sering menampilkan efek bokeh dan bara api yang terlalu sinematik, namun gagal merender anatomi jari tangan pedagang yang sedang memegang kipas. Cari foto bakaran sate yang jari tangannya terdistorsi.",
     imageA: level6Real,
     imageB: level6Ai,
     realImage: "A",
     aiImage: "B",
-    locationOfArtifacts: "Pola Jahitan Bola, Pul Sepatu & Percikan Rumput",
+    locationOfArtifacts: "Jari Tangan Pedagang, Kipas Bambu & Barisan Sate",
     clues: [
-      "Perbesar bola sepak di Gambar B. Apakah pola panel jahitannya membentuk heksagon bola standar, atau garis-garis hitam melengkung aneh menyerupai corak laba-laba?",
-      "Periksa pul (studs) di bawah sol sepatu Gambar B. Apakah posisinya menancap secara logis di tanah atau tampak melayang dengan partikel hitam yang janggal?",
-      "Bandingkan dengan Gambar A. Apakah panel hitam-putih pada bola sepak dan pul sepatu bola terlihat seperti peralatan olahraga sungguhan di bawah sinar matahari sore?"
+      "Perbesar tangan pedagang yang memegang kipas bambu di sisi kiri Gambar B. Apakah jumlah dan bentuk jari-jarinya normal, atau tampak menyatu dan terdistorsi?",
+      "Perhatikan susunan tusuk sate dan nyala bara api di Gambar B. Apakah sate berjajar terlalu rapi dalam satu baris dengan efek bokeh lampu jalan yang berlebihan?",
+      "Bandingkan dengan Gambar A. Apakah tampak panggangan besi panjang di tepi jalan dengan tusuk sate yang menyebar alami dan kepulan asap bakaran nyata?"
     ],
-    explanation: "Gambar B adalah HASIL KA. Bola sepak memiliki garis panel melengkung acak yang tidak mengikuti pola geometris bola sepak resmi, serta pul sepatu bola tampak melayang di atas rumput dengan partikel hitam aneh. Gambar A adalah FOTO ASLI. Menampilkan pemain bola menggiring bola klasik hitam-putih di atas rumput alami dengan cahaya golden hour."
+    explanation: "Gambar B adalah HASIL KA. Jari-jari tangan pedagang yang menggenggam kipas anyaman bambu tampak meleleh dan menyatu secara tidak wajar, disertai pencahayaan bara api dan bokeh malam yang terlalu sinematik. Gambar A adalah FOTO ASLI. Diambil dari sudut atas, menampilkan tusukan sate ayam yang sedang dibakar di atas pemanggang arang besi di pinggir jalan dengan asap dan tekstur daging yang autentik."
   },
   {
     id: 7,
-    title: "Petani Menanam Padi (Tandur)",
-    category: "Aktivitas Manusia & Refleksi Air Sawah",
-    description: "Foto aktivitas menanam padi (tandur) yang dihasilkan AI sering memiliki barisan bibit padi yang terlalu sejajar sempurna seperti grid komputer, serta tangan dan pakaian yang terlihat bersih tanpa noda lumpur yang realistis.",
+    title: "Prasmanan Lauk & Sate Angkringan",
+    category: "Tata Letak Makanan & Anatomi Tangan",
+    description: "AI sering menyusun hidangan warung makan dalam nampan-nampan yang terlalu simetris dan berkilau seragam, serta merusak detail tangan pedagang di latar belakang. Cari etalase lauk prasmanan yang tampak seperti lukisan iklan digital.",
     imageA: level7Ai,
     imageB: level7Real,
     realImage: "B",
     aiImage: "A",
-    locationOfArtifacts: "Jarak Tanam Bibit Padi, Riak Air & Noda Lumpur",
+    locationOfArtifacts: "Tangan Pemegang Kipas, Nampan Daun Pisang & Kilap Lauk",
     clues: [
-      "Perhatikan keteraturan bibit padi yang tertancap di air pada Gambar A. Apakah jarak antar rumpun padi terlalu presisi dan seragam seperti titik-titik di layar komputer?",
-      "Periksa riak dan genangan air di sekitar kaki petani pada Gambar A. Apakah pantulan airnya tampak seperti lukisan digital?",
-      "Bandingkan dengan Gambar B. Apakah ada lingkaran riak air konsentris alami saat tangan menancapkan bibit, dan lumpur pekat yang menempel di tangan serta kaki petani?"
+      "Periksa tangan pedagang yang memegang kipas bambu di dekat kepulan asap Gambar A. Apakah jari-jarinya proporsional atau tampak kaku dan menyatu dengan anyaman kipas?",
+      "Lihat deretan nampan lauk di Gambar A. Apakah semua nampan beralas daun pisang tampak terlalu rapi, seragam, dan berkilap seperti dilapisi pernis?",
+      "Bandingkan dengan Gambar B. Apakah terlihat suasana warung sungguhan dengan nampan plastik merah, capitan besi, rak hijau berisi lalapan, serta susunan sate usus dan sosis yang alami?"
     ],
-    explanation: "Gambar A adalah HASIL KA. Bibit padi di sawah ditata dalam garis-garis titik yang terlalu simetris dan seragam, pantulan air tampak dilukis, serta pakaian petani tampak terlalu bersih dari lumpur sawah. Gambar B adalah FOTO ASLI. Petani bercaping merah menanam bibit padi dengan riak air konsentris nyata, tangan dan kaki berlumuran lumpur, serta pencahayaan alami di sawah."
+    explanation: "Gambar A adalah HASIL KA. Seluruh nampan stainless beralas daun pisang tertata terlalu simetris dengan kilau makanan yang artifisial, serta jari tangan pedagang yang memegang kipas di belakang bara api mengalami distorsi anatomi. Gambar B adalah FOTO ASLI. Menampilkan prasmanan warung makan nyata lengkap dengan nampan plastik merah, capitan, rak lalapan hijau, tahu kuning, ayam ungkep, ikan, serta sate usus dan sosis."
   },
   {
     id: 8,
-    title: "Semangkuk Bakso Aci",
-    category: "Tekstur Makanan & Properti Dapur",
-    description: "Foto makanan AI sering menata bakso, kerupuk, dan alat dapur terlalu artistik. Cari semangkuk yang kerupuk, kuah, atau properti di sekitarnya tampak tidak konsisten secara fisik.",
+    title: "Memasak Telur Dadar di Wajan",
+    category: "Fisika Memasak & Tekstur Makanan",
+    description: "Foto proses memasak hasil rekayasa AI sering menampilkan kobaran api kompor yang terlalu dramatis serta tekstur makanan yang berpori seragam seperti spons. Cari foto menggoreng telur dadar yang tampak tidak wajar secara fisik.",
     imageA: level8Real,
     imageB: level8Ai,
     realImage: "A",
     aiImage: "B",
-    locationOfArtifacts: "Lubang Kerupuk, Kuah Merah & Properti Meja",
+    locationOfArtifacts: "Pori-Pori Telur, Kobaran Api & Sudut Spatula",
     clues: [
-      "Perbesar kerupuk tegak di Gambar B. Apakah lubang-lubangnya berbentuk aneh atau tidak natural, seolah 'direka' AI?",
-      "Lihat bakso, pilus kuning, dan kuah merah di Gambar B. Apakah permukaannya terlalu mengkilap seragam, seperti dilapisi plastik?",
-      "Bandingkan mangkuk, cangkir hitam, botol minyak, dan sendok di Gambar A. Apakah bayangan dan jarak antar benda masih logis untuk foto dapur sungguhan?"
+      "Perhatikan tekstur permukaan telur dadar yang sedang dibalik di Gambar B. Apakah pori-porinya tampak terlalu seragam menyerupai busa atau spons sintetis?",
+      "Lihat kobaran api oranye dan biru di bawah wajan Gambar B. Apakah nyala api sebesar itu wajar untuk menggoreng telur di dapur rumah?",
+      "Bandingkan dengan Gambar A. Apakah tepian telur yang garing berenda, gelembung minyak goreng, dan tungku kompor gas terlihat seperti proses memasak sungguhan?"
     ],
-    explanation: "Gambar B adalah HASIL KA. Semangkuk bakso aci dengan kerupuk, pilus, pangsit goreng, dan jeruk nipis tampak seperti iklan makanan, tetapi lubang kerupuk, kilau kuah, dan penataan properti di sekitarnya sering tidak konsisten secara fisik. Gambar A adalah FOTO ASLI. Foto bakso aci yang sama menampilkan tekstur bakso, kuah pedas, cangkir keramik, dan bayangan alami yang masuk akal."
+    explanation: "Gambar B adalah HASIL KA. Telur dadar memiliki tekstur berlubang-lubang seragam seperti spons dengan posisi spatula kayu yang janggal, serta kobaran api kompor yang terlalu besar dan sinematik. Gambar A adalah FOTO ASLI. Menampilkan telur dadar yang sedang digoreng di dalam wajan cekung dengan pinggiran krispi alami, gelembung minyak panas, dan spatula kayu."
   },
   {
     id: 9,
-    title: "Pesisir Pantai Tropis",
-    category: "Tekstur Ombak Laut & Lanskap Pantai",
-    description: "AI sering menghasilkan gulungan ombak dan pasir pantai yang terlihat seperti sapuan kuas cat minyak, serta batuan karang yang teksturnya terlalu licin dan tidak berpori. Cari pantai yang detail ombak dan batunya tampak digambar secara digital.",
+    title: "Teras Rumah & Pagar Besi Abu-Abu",
+    category: "Konsistensi Objek & Pencahayaan Eksterior",
+    description: "Transformasi gambar berbasis AI (image-to-image) sering memodifikasi foto asli menjadi tampak lebih mewah dan estetis, tetapi meninggalkan kejanggalan pada benda fungsional seperti selang air dan lampu yang menyala di siang terik.",
     imageA: level9Ai,
     imageB: level9Real,
     realImage: "B",
     aiImage: "A",
-    locationOfArtifacts: "Buih Ombak Melengkung, Tekstur Batu & Daun Kelapa",
+    locationOfArtifacts: "Gulungan Selang Biru, Lampu Gantung & Kabel Jalan",
     clues: [
-      "Perhatikan gulungan ombak yang pecah di pantai pada Gambar A. Apakah buih dan airnya tampak seperti lukisan cat minyak daripada foto kamera sungguhan?",
-      "Periksa bebatuan hitam di atas pasir Gambar A. Apakah permukaannya terlalu mulus dan licin, tanpa tekstur kasar batu pantai alami?",
-      "Bandingkan dengan foto udara Gambar B. Apakah perahu kecil, bayangan orang berenang di air dangkal, dan gradasi terumbu karang tampak tajam dan nyata?"
+      "Perbesar selang air warna biru di bagian bawah pilar putih pada Gambar A. Apakah gulungan selangnya terhubung ke keran secara logis atau hanya melingkar kaku menempel di dinding?",
+      "Perhatikan lampu gantung di plafon teras dan lampu dinding di Gambar A. Mengapa semua lampu berpendar kuning hangat padahal matahari siang sedang bersinar terik?",
+      "Bandingkan dengan Gambar B. Apakah selang biru menjuntai alami di lantai keramik dari keran kecil, dengan latar warung tetangga yang nyata di seberang jalan?"
     ],
-    explanation: "Gambar A adalah HASIL KA. Ombak laut, buih air, dan bebatuan di bibir pantai tampak seperti lukisan digital atau game render: buih ombak terlalu halus dan dedaunan pohon kelapa di tebing tampak digambar AI. Gambar B adalah FOTO ASLI. Foto udara (drone) pantai tropis berpasir putih menampilkan perahu kecil, orang yang sedang berenang, serta kejernihan air laut yang menembus dasar karang secara alami."
+    explanation: "Gambar A adalah HASIL KA. Merupakan hasil olahan AI yang menambahkan pintu kayu, tanaman hias, dan bayangan dramatis, namun membuat selang biru melingkar kaku tanpa ujung keran yang jelas serta lampu teras menyala di siang bolong. Gambar B adalah FOTO ASLI. Menampilkan teras rumah nyata dengan selang air biru yang tergeletak alami di lantai, pagar lipat besi abu-abu, dan pemandangan jalan lingkungan warga."
   },
   {
     id: 10,
-    title: "Kerumunan Padat Orang Banyak",
-    category: "Anatomi Wajah Massal & Efek Uncanny Valley",
-    description: "AI paling sering mengalami kegagalan fatal saat menghasilkan kerumunan banyak orang (crowd). Wajah-wajah di barisan belakang hampir selalu meleleh, mata tidak simetris, atau tersenyum dengan cara yang menyeramkan (uncanny valley). Cari kerumunan yang wajah-wajah di belakangnya terdistorsi.",
+    title: "Bingkai Foto & Lukisan di Meja Kerja",
+    category: "Duplikasi Visual & Tata Ruang Studio",
+    description: "Saat diminta membuat suasana ruang kerja pengrajin bingkai atau studio lukis, AI cenderung menciptakan ruangan bergaya Eropa yang terlalu rapi dan sering menduplikasi gambar lukisan yang sama di beberapa tempat.",
     imageA: level10Real,
     imageB: level10Ai,
     realImage: "A",
     aiImage: "B",
-    locationOfArtifacts: "Wajah Meleleh di Barisan Belakang & Senyuman Seragam",
+    locationOfArtifacts: "Lukisan Kembar, Peralatan Lukis & Cahaya Jendela",
     clues: [
-      "Perbesar wajah-wajah orang di barisan tengah dan belakang pada Gambar B. Apakah bentuk mata, hidung, dan mulut mereka mulai meleleh dan terdistorsi menjadi rupa yang menyeramkan?",
-      "Perhatikan ekspresi seluruh orang di Gambar B. Apakah hampir semua orang memiliki senyuman yang terlalu seragam dan tatapan mata kosong menghadap ke kamera?",
-      "Bandingkan dengan Gambar A. Apakah kerumunan orang memiliki gestur tangan, topi, kacamata, dan ekspresi wajah yang beragam serta tetap berstruktur anatomi nyata meski berada di kejauhan?"
+      "Bandingkan lukisan pemandangan danau berbingkai emas di atas meja Gambar B dengan lukisan besar yang tergantung di dinding belakang. Mengapa kedua lukisan tersebut memiliki komposisi gambar yang hampir kembar identik?",
+      "Perhatikan penataan kuas, botol cat, dan lampu meja yang menyala di siang hari pada Gambar B. Apakah suasananya terasa terlalu mulus dan ideal seperti ilustrasi katalog?",
+      "Lihat Gambar A. Apakah tumpukan bingkai kosong berbagai ukuran, pantulan kaca, dan gelas kopi di atas meja menunjukkan suasana bengkel pigura sungguhan?"
     ],
-    explanation: "Gambar B adalah HASIL KA. Pada kerumunan AI ini, wajah-wajah di barisan belakang mengalami distorsi parah (facial melting): mata dan mulut meleleh, beberapa wajah tampak menyeramkan (uncanny valley), dan semua orang tersenyum seragam. Gambar A adalah FOTO ASLI. Menampilkan kerumunan ribuan demonstran nyata dengan berbagai ragam ekspresi, pose mengangkat tangan, pakaian, dan kedalaman fokus kamera lensa telefoto yang alami."
+    explanation: "Gambar B adalah HASIL KA. Studio lukis tampak terlalu ideal dengan pencahayaan sempurna, serta terdapat anomali duplikasi khas AI di mana lukisan pemandangan danau di atas meja tampak kembar dengan lukisan yang tergantung di dinding. Gambar A adalah FOTO ASLI. Menampilkan tumpukan berbagai bingkai foto dan kaca di bengkel pigura nyata, lengkap dengan cangkir bertutup di atas meja dan pekerja di sisi kanan."
   }
 ];

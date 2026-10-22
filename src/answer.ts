@@ -20,23 +20,23 @@ export interface DigitalDetectiveAnswer {
 export const digitalDetectiveAnswers: DigitalDetectiveAnswer[] = [
   {
     caseId: 1,
-    title: 'Kucing Oren',
-    category: 'Anatomi Hewan & Objek Dipegang',
+    title: 'Tanaman Hias di Pot Hitam',
+    category: 'Tulisan Tangan & Tekstur Permukaan',
     liveUrl: 'https://glenrioariesto.github.io/detektif-digital-challenge/',
     realImage: 'B',
     aiImage: 'A',
-    locationOfArtifacts: 'Kaki Depan, Cangkir & Pose Selfie',
-    explanation: 'Gambar A adalah HASIL KA. Kucing oren berpose selfie sambil memegang matcha iced drink — anatomi kaki depan dipaksa meniru tangan manusia, sesuatu yang tidak terjadi pada foto nyata. Gambar B adalah FOTO ASLI. Kucing berdiri di ubin dengan kaki, ekor, dan proporsi tubuh yang natural.'
+    locationOfArtifacts: 'Tulisan Pot, Tekstur Tanah & Kilap Daun',
+    explanation: 'Gambar A adalah HASIL KA. Pot hitam tampak terlalu mulus sempurna tanpa tulisan penanda, kilap permukaan daun terlalu seragam, dan efek blur latar belakang tampak sintetis. Gambar B adalah FOTO ASLI tanaman hias Aglaonema dalam pot plastik hitam dengan tulisan cat putih "kel 8 IX".'
   },
   {
     caseId: 2,
-    title: 'Kios Sayur di Pasar Tradisional',
-    category: 'Teks Label & Pencahayaan Pasar',
+    title: 'Etalase Warung & Keranjang Jajanan',
+    category: 'Teks Kemasan Produk & Properti Warung',
     liveUrl: 'https://glenrioariesto.github.io/detektif-digital-challenge/',
     realImage: 'A',
     aiImage: 'B',
-    locationOfArtifacts: 'Teks Papan Harga, Bohlam Lampu & Detail Sayuran',
-    explanation: 'Gambar B adalah HASIL KA. Tulisan pada papan harga dan label di Gambar B berupa huruf aneh/gibberish yang tidak bermakna, serta lampu filamen gantung tampak artifisial. Gambar A adalah FOTO ASLI pedagang pasar dengan sayuran segar alami.'
+    locationOfArtifacts: 'Teks Bungkus Jajanan, Cobek & Capitan',
+    explanation: 'Gambar B adalah HASIL KA. Tulisan merek pada bungkus jajanan di keranjang hijau mengalami distorsi huruf acak (gibberish) yang tidak terbaca, ditambah kemunculan objek mirip cobek yang tidak wajar di atas etalase. Gambar A adalah FOTO ASLI dengan teks kemasan "Garuda Pilus" dan "Brownies Crispy" yang terbaca jelas.'
   },
   {
     caseId: 3,
@@ -50,73 +50,73 @@ export const digitalDetectiveAnswers: DigitalDetectiveAnswer[] = [
   },
   {
     caseId: 4,
-    title: 'Pemandangan Sawah Pedesaan',
-    category: 'Lanskap Alam & Arsitektur Desa',
+    title: 'Kucing Putih di Dekat Kursi Kayu',
+    category: 'Tekstur Bulu Hewan & Pencahayaan Dramatis',
     liveUrl: 'https://glenrioariesto.github.io/detektif-digital-challenge/',
     realImage: 'A',
     aiImage: 'B',
-    locationOfArtifacts: 'Kubah Masjid, Jalur Aspal Meliuk & Tekstur Bulir Padi',
-    explanation: 'Gambar B adalah HASIL KA. Kubah masjid besar di tengah sawah tampak seperti ilustrasi fantasi: jalan aspal meliuk terlalu licin sempurna tanpa marka realistis, dan bulir padi di latar depan terlalu seragam. Gambar A adalah FOTO ASLI jalan desa Indonesia dengan pesepeda dan gunung berawan kabut.'
+    locationOfArtifacts: 'Tekstur Bulu, Bantalan Kaki & Sinar Matahari',
+    explanation: 'Gambar B adalah HASIL KA. Anak kucing putih tampil dengan pencahayaan keemasan yang terlalu sinematik, tekstur bulu sehalus kapas digital, dan pose mengulurkan kaki depan ke kamera yang tampak dibuat-buat. Gambar A adalah FOTO ASLI kucing putih yang menyandarkan dagu di kaki kursi kayu sambil menggigit selang plastik bening.'
   },
   {
     caseId: 5,
-    title: 'Kepulauan Karst Raja Ampat',
-    category: 'Geografi Pesisir & Terumbu Karang',
+    title: 'Tiang Listrik & Kabel Semrawut',
+    category: 'Logika Konstruksi Kabel & Utilitas Kota',
     liveUrl: 'https://glenrioariesto.github.io/detektif-digital-challenge/',
     realImage: 'B',
     aiImage: 'A',
-    locationOfArtifacts: 'Bentuk Pulau Karst, Kapal Melayang & Terumbu Karang',
-    explanation: 'Gambar A adalah HASIL KA. Gugusan pulau karst terlihat seperti miniatur digital: bentuk pulau bulat seragam, kapal-kapal putih gepeng tanpa detail lambung, dan terumbu karang matematis. Gambar B adalah FOTO ASLI pemandangan udara Raja Ampat dengan terumbu karang alami dan tebing karst nyata.'
+    locationOfArtifacts: 'Sambungan Kabel, Isolator & Kotak Panel',
+    explanation: 'Gambar A adalah HASIL KA. Konstruksi tiang listrik tidak logis: terdapat dua kotak panel bersih yang berdampingan secara janggal, lampu jalan yang menempel aneh, serta untaian kabel dan isolator yang tidak mengikuti fungsi kelistrikan nyata. Gambar B adalah FOTO ASLI tiang listrik beton dengan kotak panel berkarat dan lilitan ijuk hitam.'
   },
   {
     caseId: 6,
-    title: 'Aksi Sepak Bola di Lapangan',
-    category: 'Fisika Olahraga & Pola Geometris Bola',
+    title: 'Membakar Sate Ayam di Atas Arang',
+    category: 'Anatomi Jari Tangan & Efek Bara Api',
     liveUrl: 'https://glenrioariesto.github.io/detektif-digital-challenge/',
     realImage: 'A',
     aiImage: 'B',
-    locationOfArtifacts: 'Pola Jahitan Bola, Pul Sepatu & Percikan Rumput',
-    explanation: 'Gambar B adalah HASIL KA. Bola sepak memiliki garis panel melengkung acak yang tidak mengikuti pola geometris bola sepak resmi, serta pul sepatu bola tampak melayang di atas rumput dengan partikel hitam aneh. Gambar A adalah FOTO ASLI pemain menggiring bola klasik di rumput alami.'
+    locationOfArtifacts: 'Jari Tangan Pedagang, Kipas Bambu & Barisan Sate',
+    explanation: 'Gambar B adalah HASIL KA. Jari-jari tangan pedagang yang menggenggam kipas anyaman bambu tampak meleleh dan menyatu secara tidak wajar, disertai pencahayaan bara api dan bokeh malam yang terlalu sinematik. Gambar A adalah FOTO ASLI sate ayam yang sedang dibakar di atas pemanggang arang besi.'
   },
   {
     caseId: 7,
-    title: 'Petani Menanam Padi (Tandur)',
-    category: 'Aktivitas Manusia & Refleksi Air Sawah',
+    title: 'Prasmanan Lauk & Sate Angkringan',
+    category: 'Tata Letak Makanan & Anatomi Tangan',
     liveUrl: 'https://glenrioariesto.github.io/detektif-digital-challenge/',
     realImage: 'B',
     aiImage: 'A',
-    locationOfArtifacts: 'Jarak Tanam Bibit Padi, Riak Air & Noda Lumpur',
-    explanation: 'Gambar A adalah HASIL KA. Bibit padi di sawah ditata dalam garis titik yang terlalu simetris sempurna seperti grid komputer, pantulan air terlukis, dan baju terlalu bersih. Gambar B adalah FOTO ASLI petani bercaping menanam padi dengan riak air konsentris nyata dan tangan berlumur lumpur.'
+    locationOfArtifacts: 'Tangan Pemegang Kipas, Nampan Daun Pisang & Kilap Lauk',
+    explanation: 'Gambar A adalah HASIL KA. Seluruh nampan stainless beralas daun pisang tertata terlalu simetris dengan kilau makanan yang artifisial, serta jari tangan pedagang yang memegang kipas di belakang bara api mengalami distorsi anatomi. Gambar B adalah FOTO ASLI prasmanan warung makan nyata dengan nampan plastik merah dan capitan.'
   },
   {
     caseId: 8,
-    title: 'Semangkuk Bakso Aci',
-    category: 'Tekstur Makanan & Properti Dapur',
+    title: 'Memasak Telur Dadar di Wajan',
+    category: 'Fisika Memasak & Tekstur Makanan',
     liveUrl: 'https://glenrioariesto.github.io/detektif-digital-challenge/',
     realImage: 'A',
     aiImage: 'B',
-    locationOfArtifacts: 'Lubang Kerupuk, Kuah Merah & Properti Meja',
-    explanation: 'Gambar B adalah HASIL KA. Semangkuk bakso aci tampak seperti iklan buatan: lubang kerupuk tidak wajar, kilau kuah seragam seperti plastik. Gambar A adalah FOTO ASLI makanan dengan tekstur alami.'
+    locationOfArtifacts: 'Pori-Pori Telur, Kobaran Api & Sudut Spatula',
+    explanation: 'Gambar B adalah HASIL KA. Telur dadar memiliki tekstur berlubang-lubang seragam seperti spons dengan posisi spatula kayu yang janggal, serta kobaran api kompor yang terlalu besar dan sinematik. Gambar A adalah FOTO ASLI telur dadar yang sedang digoreng di dalam wajan dengan pinggiran krispi alami.'
   },
   {
     caseId: 9,
-    title: 'Pesisir Pantai Tropis',
-    category: 'Tekstur Ombak Laut & Lanskap Pantai',
+    title: 'Teras Rumah & Pagar Besi Abu-Abu',
+    category: 'Konsistensi Objek & Pencahayaan Eksterior',
     liveUrl: 'https://glenrioariesto.github.io/detektif-digital-challenge/',
     realImage: 'B',
     aiImage: 'A',
-    locationOfArtifacts: 'Buih Ombak Melengkung, Tekstur Batu & Daun Kelapa',
-    explanation: 'Gambar A adalah HASIL KA. Ombak laut, buih air, dan bebatuan di bibir pantai tampak seperti lukisan cat minyak/digital: buih ombak terlalu halus dan daun kelapa tampak digambar AI. Gambar B adalah FOTO ASLI udara drone pantai pasir putih dengan perahu dan orang berenang di air jernih.'
+    locationOfArtifacts: 'Gulungan Selang Biru, Lampu Gantung & Kabel Jalan',
+    explanation: 'Gambar A adalah HASIL KA. Merupakan hasil olahan AI yang membuat selang biru melingkar kaku tanpa ujung keran yang jelas serta lampu teras menyala di siang bolong. Gambar B adalah FOTO ASLI teras rumah nyata dengan selang air biru yang tergeletak alami di lantai.'
   },
   {
     caseId: 10,
-    title: 'Kerumunan Padat Orang Banyak',
-    category: 'Anatomi Wajah Massal & Efek Uncanny Valley',
+    title: 'Bingkai Foto & Lukisan di Meja Kerja',
+    category: 'Duplikasi Visual & Tata Ruang Studio',
     liveUrl: 'https://glenrioariesto.github.io/detektif-digital-challenge/',
     realImage: 'A',
     aiImage: 'B',
-    locationOfArtifacts: 'Wajah Meleleh di Barisan Belakang & Senyuman Seragam',
-    explanation: 'Gambar B adalah HASIL KA. Wajah-wajah di barisan belakang mengalami distorsi parah (facial melting): mata dan mulut meleleh, beberapa wajah tampak menyeramkan (uncanny valley), dan semua orang tersenyum seragam. Gambar A adalah FOTO ASLI kerumunan ribuan demonstran nyata dengan ragam ekspresi dan pakaian otentik.'
+    locationOfArtifacts: 'Lukisan Kembar, Peralatan Lukis & Cahaya Jendela',
+    explanation: 'Gambar B adalah HASIL KA. Studio lukis tampak terlalu ideal dengan pencahayaan sempurna, serta terdapat anomali duplikasi khas AI di mana lukisan pemandangan danau di atas meja tampak kembar dengan lukisan yang tergantung di dinding. Gambar A adalah FOTO ASLI tumpukan bingkai di bengkel pigura nyata.'
   }
 ];
 
